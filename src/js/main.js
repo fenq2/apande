@@ -25,12 +25,34 @@ const swiper3 = new Swiper('.reviews-swiper', {
   pagination: {
     el: '.swiper-pagination',
   },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    600: {
+      slidesPerView: 2,
+      spaceBetween: 18,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+    1000: {
+      slidesPerView: 2,
+      spaceBetween: 32,
+    },
+  },
 });
 
 const swiper4 = new Swiper('.catalog-swiper', {
   spaceBetween: 47,
   slidesPerView: 5,
   loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  // effect: 'slide',
+  // speed: 300,
 });
 
 const popupLinks = document.querySelectorAll('.popup-link');
@@ -158,6 +180,61 @@ document.addEventListener('keydown', (e) => {
       Element.prototype.msMatchesSelector;
   }
 })();
+
+const callbackChange = () => {
+  const callbackChangeButton = document.querySelectorAll('.callback-tabs__button');
+
+  callbackChangeButton.forEach((item) => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('callback-tabs__button--active')) {
+        item.classList.remove('callback-tabs__button--active');
+      } else {
+        item.classList.add('callback-tabs__button--active');
+      }
+    });
+  });
+};
+
+callbackChange();
+
+const orderChange = () => {
+  const orderChangeOne = document.querySelectorAll('.order-slide--one');
+  const orderChangeTwo = document.querySelectorAll('.order-slide--two');
+  const orderChangeThree = document.querySelector('.order-slide--three');
+
+  orderChangeOne.forEach((item) => {
+    const orderChangeOneButton = item.querySelector('.button');
+    orderChangeOneButton.addEventListener('click', () => {
+      item.classList.remove('order-slide--active');
+      item.nextElementSibling.classList.add('order-slide--active');
+    });
+  });
+
+  orderChangeTwo.forEach((item) => {
+    const orderChangeTwoButton = item.querySelector('.button');
+    orderChangeTwoButton.addEventListener('click', () => {
+      item.classList.remove('order-slide--active');
+      item.nextElementSibling.classList.add('order-slide--active');
+    });
+  });
+  // const orderChangeOne = document.querySelector('.order-slide--one');
+  // const orderChangeOneButton = document.querySelector('.order-slide--one').querySelector('.button');
+  // const orderChangeTwo = document.querySelector('.order-slide--two');
+  // const orderChangeTwoButton = document.querySelector('.order-slide--two').querySelector('.button');
+  // const orderChangeThree = document.querySelector('.order-slide--three');
+
+  // orderChangeOneButton.addEventListener('click', () => {
+  //   orderChangeOne.classList.remove('order-slide--active');
+  //   orderChangeTwo.classList.add('order-slide--active');
+  // });
+
+  // orderChangeTwoButton.addEventListener('click', () => {
+  //   orderChangeTwo.classList.remove('order-slide--active');
+  //   orderChangeThree.classList.add('order-slide--active');
+  // });
+};
+
+orderChange();
 
 const tab = function () {
   let tabNav = document.querySelectorAll('.tabs-nav__item'), // Выбираем элементы навигации табов
