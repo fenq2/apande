@@ -11,6 +11,37 @@
       margin: 0 auto;
       margin-bottom: 42px;
       width: max-content;
+
+      @media screen and (max-width: 1000px) {
+        margin-bottom: 45px;
+      }
+
+      @media screen and (max-width: 768px) {
+        gap: 10px;
+      }
+
+      @media screen and (max-width: 700px) {
+        gap: 0;
+      }
+    }
+
+    .logo__img {
+      @media screen and (max-width: 768px) {
+        width: 80px;
+        height: 37px;
+      }
+
+      @media screen and (max-width: 700px) {
+        width: 104px;
+        height: 48px;
+      }
+    }
+
+    .logo__desc {
+      @media screen and (max-width: 768px) {
+        font-size: 12px;
+        line-height: 17px;
+      }
     }
   }
 
@@ -19,6 +50,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 10px;
 
     @media screen and (max-width: 700px) {
       gap: 32px;
@@ -44,8 +76,6 @@
       .footer-info__list {
         @media screen and (max-width: 768px) {
           gap: 60px;
-          // flex-direction: column;
-          // align-items: center;
         }
 
         @media screen and (max-width: 700px) {
@@ -89,6 +119,17 @@
 
       @media screen and (max-width: 1000px) {
         padding: 20px 0 23px 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        padding: 15px 0 18px 0;
+      }
+
+      @media screen and (max-width: 400px) {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        padding: 26px 0 18px 0;
       }
     }
   }
@@ -159,9 +200,6 @@
 }
 
 .footer-details {
-  // @media screen and (max-width: 400px) {
-  //   text-align: center;
-  // }
   &__list {
     display: flex;
     flex-direction: column;
@@ -191,6 +229,11 @@
   border-bottom: 1px solid #7d7d7d;
   transition: 0.2s;
 
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
   &:hover {
     color: #bfbfbf;
     border-bottom: 1px solid #bfbfbf;
@@ -203,4 +246,9 @@
   line-height: 26px;
   letter-spacing: -0.007em;
   color: #7d7d7d;
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    line-height: 20px;
+  }
 }

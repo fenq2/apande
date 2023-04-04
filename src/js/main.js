@@ -1,8 +1,21 @@
 const swiper = new Swiper('.card-swiper', {
-  spaceBetween: 10,
-  slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
+
+  breakpoints: {
+    320: {
+      spaceBetween: 14,
+      slidesPerView: 2.5,
+    },
+    400: {
+      spaceBetween: 14,
+      slidesPerView: 3,
+    },
+    650: {
+      spaceBetween: 10,
+      slidesPerView: 4,
+    },
+  },
 });
 const swiper2 = new Swiper('.card-swiper2', {
   spaceBetween: 10,
@@ -16,8 +29,8 @@ const swiper2 = new Swiper('.card-swiper2', {
 });
 
 const swiper3 = new Swiper('.reviews-swiper', {
-  slidesPerView: 2,
-  spaceBetween: 32,
+  // slidesPerView: 2,
+  // spaceBetween: 32,
   navigation: {
     nextEl: '.reviews-swiper-button-next',
     prevEl: '.reviews-swiper-button-prev',
@@ -45,11 +58,27 @@ const swiper3 = new Swiper('.reviews-swiper', {
 });
 
 const swiper4 = new Swiper('.catalog-swiper', {
-  spaceBetween: 47,
-  slidesPerView: 5,
   loop: true,
   autoplay: {
     delay: 5000,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 3,
+      spaceBetween: 23,
+    },
+    700: {
+      slidesPerView: 5,
+      spaceBetween: 26,
+    },
+    768: {
+      slidesPerView: 5,
+      spaceBetween: 34,
+    },
+    1000: {
+      spaceBetween: 47,
+      slidesPerView: 5,
+    },
   },
   // effect: 'slide',
   // speed: 300,
@@ -181,26 +210,10 @@ document.addEventListener('keydown', (e) => {
   }
 })();
 
-const callbackChange = () => {
-  const callbackChangeButton = document.querySelectorAll('.callback-tabs__button');
-
-  callbackChangeButton.forEach((item) => {
-    item.addEventListener('click', () => {
-      if (item.classList.contains('callback-tabs__button--active')) {
-        item.classList.remove('callback-tabs__button--active');
-      } else {
-        item.classList.add('callback-tabs__button--active');
-      }
-    });
-  });
-};
-
-callbackChange();
-
 const orderChange = () => {
   const orderChangeOne = document.querySelectorAll('.order-slide--one');
   const orderChangeTwo = document.querySelectorAll('.order-slide--two');
-  const orderChangeThree = document.querySelector('.order-slide--three');
+  const callbackSlideOne = document.querySelectorAll('.callback-slide--one');
 
   orderChangeOne.forEach((item) => {
     const orderChangeOneButton = item.querySelector('.button');
@@ -217,24 +230,49 @@ const orderChange = () => {
       item.nextElementSibling.classList.add('order-slide--active');
     });
   });
-  // const orderChangeOne = document.querySelector('.order-slide--one');
-  // const orderChangeOneButton = document.querySelector('.order-slide--one').querySelector('.button');
-  // const orderChangeTwo = document.querySelector('.order-slide--two');
-  // const orderChangeTwoButton = document.querySelector('.order-slide--two').querySelector('.button');
-  // const orderChangeThree = document.querySelector('.order-slide--three');
 
-  // orderChangeOneButton.addEventListener('click', () => {
-  //   orderChangeOne.classList.remove('order-slide--active');
-  //   orderChangeTwo.classList.add('order-slide--active');
-  // });
+  // console.log(callbackSlideOne);
 
-  // orderChangeTwoButton.addEventListener('click', () => {
-  //   orderChangeTwo.classList.remove('order-slide--active');
-  //   orderChangeThree.classList.add('order-slide--active');
-  // });
+  callbackSlideOne.forEach((item) => {
+    const callbackChangeOneButton = item.querySelector('.button');
+    callbackChangeOneButton.addEventListener('click', () => {
+      item.classList.remove('callback-slide--active');
+      item.nextElementSibling.classList.add('callback-slide--active');
+    });
+  });
 };
 
 orderChange();
+
+const minPopup = () => {
+  const buttonLeft = document.querySelector('.button-plus--left');
+  const buttonCenter = document.querySelector('.button-plus--center');
+  const buttonRight = document.querySelector('.button-plus--right');
+  const windowLeft = document.querySelector('.window--left');
+  const windowCenter = document.querySelector('.window--center');
+  const windowRight = document.querySelector('.window--right');
+  const windowLeftClose = windowLeft.querySelector('.window__close');
+  const windowCenterClose = windowCenter.querySelector('.window__close');
+  const windowRightClose = windowRight.querySelector('.window__close');
+
+  buttonLeft.addEventListener('click', () => {
+    windowLeft.classList.toggle('window--active');
+
+    windowLeftClose.addEventListener('click', () => {
+      windowLeft.classList.remove('window--active');
+    });
+  });
+
+  buttonCenter.addEventListener('click', () => {
+    windowCenter.classList.toggle('window--active');
+  });
+
+  buttonRight.addEventListener('click', () => {
+    windowRight.classList.toggle('window--active');
+  });
+};
+
+minPopup();
 
 const tab = function () {
   let tabNav = document.querySelectorAll('.tabs-nav__item'), // Выбираем элементы навигации табов
