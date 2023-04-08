@@ -59,9 +59,9 @@ const swiper3 = new Swiper('.reviews-swiper', {
 
 const swiper4 = new Swiper('.catalog-swiper', {
   loop: true,
-  autoplay: {
-    delay: 5000,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  // },
   breakpoints: {
     320: {
       slidesPerView: 3,
@@ -210,36 +210,103 @@ document.addEventListener('keydown', (e) => {
   }
 })();
 
+const presentationVideoPlay = () => {
+  const presentationVideo = document.querySelectorAll('.youtube-video');
+  presentationVideo.forEach((item) => {
+    const presentationVideoButton = item.querySelector('.button-play');
+    presentationVideoButton.addEventListener('click', () => {
+      item.classList.add('youtube-video--hidden');
+    });
+  });
+};
+
+presentationVideoPlay();
+
+// const mailingChange = () => {
+//   const mailingButton = document.querySelectorAll('.mailing-item');
+//   mailingButton.forEach((item) => {
+//     item.addEventListener('click', () => {
+//       console.log(item.classList.contains('mailing-item--active'));
+//       // if (item.classList.contains('mailing-item--active')) {
+//       //   console.log('1');
+//       //   item.classList.remove('mailing-item--active');
+//       // }
+//       // if (item !== item.classList.contains('mailing-item--active')) {
+//       //   item.classList.add('mailing-item--active');
+//       // }
+//     });
+//   });
+// };
+
+// mailingChange();
+
 const orderChange = () => {
-  const orderChangeOne = document.querySelectorAll('.order-slide--one');
-  const orderChangeTwo = document.querySelectorAll('.order-slide--two');
-  const callbackSlideOne = document.querySelectorAll('.callback-slide--one');
+  const popup = document.querySelectorAll('.popup');
+  popup.forEach((item) => {
+    const orderChangeOne = item.querySelectorAll('.order-slide--one');
+    const orderChangeTwo = item.querySelectorAll('.order-slide--two');
+    const callbackSlideOne = item.querySelectorAll('.callback-slide--one');
+    const orderRightOne = item.querySelector('.order-header--one');
+    const orderRightTwo = item.querySelector('.order-header--two');
 
-  orderChangeOne.forEach((item) => {
-    const orderChangeOneButton = item.querySelector('.button');
-    orderChangeOneButton.addEventListener('click', () => {
-      item.classList.remove('order-slide--active');
-      item.nextElementSibling.classList.add('order-slide--active');
+    orderChangeOne.forEach((item1) => {
+      const orderChangeOneButton = item1.querySelector('.button');
+      orderChangeOneButton.addEventListener('click', () => {
+        item1.classList.remove('order-slide--active');
+        item1.nextElementSibling.classList.add('order-slide--active');
+        orderRightOne.classList.remove('order-header--active');
+        orderRightOne.nextElementSibling.classList.add('order-header--active');
+      });
+    });
+
+    orderChangeTwo.forEach((item1) => {
+      const orderChangeTwoButton = item1.querySelector('.button');
+      orderChangeTwoButton.addEventListener('click', () => {
+        item1.classList.remove('order-slide--active');
+        item1.nextElementSibling.classList.add('order-slide--active');
+        orderRightTwo.classList.remove('order-header--active');
+        console.log(orderRightTwo.nextElementSibling.classList.add('order-header--active'));
+        // orderRightTwo.nextElementSibling.classList.add('order-header--active');
+      });
+    });
+
+    callbackSlideOne.forEach((item1) => {
+      const callbackChangeOneButton = item1.querySelector('.button');
+      callbackChangeOneButton.addEventListener('click', () => {
+        item1.classList.remove('callback-slide--active');
+        item1.nextElementSibling.classList.add('callback-slide--active');
+      });
     });
   });
+  // const orderChangeOne = document.querySelectorAll('.order-slide--one');
+  // const orderChangeTwo = document.querySelectorAll('.order-slide--two');
+  // const callbackSlideOne = document.querySelectorAll('.callback-slide--one');
+  // const orderRightOne = document.querySelector('.order-header--one');
+  // const orderRightTwo = document.querySelectorAll('.order-header--two');
 
-  orderChangeTwo.forEach((item) => {
-    const orderChangeTwoButton = item.querySelector('.button');
-    orderChangeTwoButton.addEventListener('click', () => {
-      item.classList.remove('order-slide--active');
-      item.nextElementSibling.classList.add('order-slide--active');
-    });
-  });
+  // orderChangeOne.forEach((item) => {
+  //   const orderChangeOneButton = item.querySelector('.button');
+  //   orderChangeOneButton.addEventListener('click', () => {
+  //     item.classList.remove('order-slide--active');
+  //     item.nextElementSibling.classList.add('order-slide--active');
+  //   });
+  // });
 
-  // console.log(callbackSlideOne);
+  // orderChangeTwo.forEach((item) => {
+  //   const orderChangeTwoButton = item.querySelector('.button');
+  //   orderChangeTwoButton.addEventListener('click', () => {
+  //     item.classList.remove('order-slide--active');
+  //     item.nextElementSibling.classList.add('order-slide--active');
+  //   });
+  // });
 
-  callbackSlideOne.forEach((item) => {
-    const callbackChangeOneButton = item.querySelector('.button');
-    callbackChangeOneButton.addEventListener('click', () => {
-      item.classList.remove('callback-slide--active');
-      item.nextElementSibling.classList.add('callback-slide--active');
-    });
-  });
+  // callbackSlideOne.forEach((item) => {
+  //   const callbackChangeOneButton = item.querySelector('.button');
+  //   callbackChangeOneButton.addEventListener('click', () => {
+  //     item.classList.remove('callback-slide--active');
+  //     item.nextElementSibling.classList.add('callback-slide--active');
+  //   });
+  // });
 };
 
 orderChange();
@@ -255,20 +322,43 @@ const minPopup = () => {
   const windowCenterClose = windowCenter.querySelector('.window__close');
   const windowRightClose = windowRight.querySelector('.window__close');
 
-  buttonLeft.addEventListener('click', () => {
+  buttonLeft.addEventListener('click', (e) => {
+    e.stopPropagation();
     windowLeft.classList.toggle('window--active');
 
     windowLeftClose.addEventListener('click', () => {
       windowLeft.classList.remove('window--active');
     });
+
+    window.addEventListener('click', () => {
+      windowLeft.classList.remove('window--active');
+    });
   });
 
-  buttonCenter.addEventListener('click', () => {
+  buttonCenter.addEventListener('click', (e) => {
+    e.stopPropagation();
     windowCenter.classList.toggle('window--active');
+
+    windowCenterClose.addEventListener('click', () => {
+      windowCenter.classList.remove('window--active');
+    });
+
+    window.addEventListener('click', () => {
+      windowCenter.classList.remove('window--active');
+    });
   });
 
-  buttonRight.addEventListener('click', () => {
+  buttonRight.addEventListener('click', (e) => {
+    e.stopPropagation(e);
     windowRight.classList.toggle('window--active');
+
+    windowRightClose.addEventListener('click', () => {
+      windowRight.classList.remove('window--active');
+    });
+
+    window.addEventListener('click', () => {
+      windowRight.classList.remove('window--active');
+    });
   });
 };
 

@@ -314,10 +314,10 @@
         <div class="container">
           <div class="presentation__wrap">
             <h2 class="title presentation__title">Посмотрите 5-минутное видео с презентацией набора</h2>
-            <div class="presentation-video">
-              <div class="presentation-video__main">
+            <div class="presentation-video youtube-video">
+              <div class="presentation-video__main youtube-video__main">
                 <img src="images/content/presentation-video-img1.png" alt="">
-                <a href="#" class="button-play">
+                <button class="button-play">
                   <span class="button-play__circle">
                     <span class="button-play__icon">
                       <svg viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -327,7 +327,13 @@
                       </svg>
                     </span>
                   </span>
-                </a>
+                </button>
+              </div>
+              <div class="youtube-video__slide">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uCNWuSbPnt4"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
               </div>
             </div>
           </div>
@@ -443,15 +449,60 @@
                       <a href="#popup-order" class="button button--gold popup-link">Заказать набор</a>
                       <a href="#" class="button-video">
                         <div class="button-video__img">
-                          <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 461.001 461.001"
-                            style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
-                            <g>
-                              <path
-                                d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.082z"
-                                style="" fill="#f0d68c" data-original="#f61c0d" class=""></path>
+                          <svg width="34" height="35" viewBox="0 0 34 35" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_108_3015)">
+                              <g filter="url(#filter0_d_108_3015)">
+                                <path
+                                  d="M23.65 0.967285H9.68333C3.61667 0.967285 0 4.58395 0 10.6506V24.6006C0 30.684 3.61667 34.3006 9.68333 34.3006H23.6333C29.7 34.3006 33.3167 30.684 33.3167 24.6173V10.6506C33.3333 4.58395 29.7167 0.967285 23.65 0.967285ZM21.1 20.5173L18.9667 21.7506L16.8333 22.984C14.0833 24.5673 11.8333 23.2673 11.8333 20.1006V17.634V15.1673C11.8333 11.984 14.0833 10.7006 16.8333 12.284L18.9667 13.5173L21.1 14.7506C23.85 16.334 23.85 18.934 21.1 20.5173Z"
+                                  fill="url(#paint0_linear_108_3015)" />
+                                <path
+                                  d="M23.65 0.967285H9.68333C3.61667 0.967285 0 4.58395 0 10.6506V24.6006C0 30.684 3.61667 34.3006 9.68333 34.3006H23.6333C29.7 34.3006 33.3167 30.684 33.3167 24.6173V10.6506C33.3333 4.58395 29.7167 0.967285 23.65 0.967285ZM21.1 20.5173L18.9667 21.7506L16.8333 22.984C14.0833 24.5673 11.8333 23.2673 11.8333 20.1006V17.634V15.1673C11.8333 11.984 14.0833 10.7006 16.8333 12.284L18.9667 13.5173L21.1 14.7506C23.85 16.334 23.85 18.934 21.1 20.5173Z"
+                                  fill="url(#paint1_radial_108_3015)" fill-opacity="0.75" />
+                                <path
+                                  d="M32.9167 10.6495V10.6506V24.6173C32.9167 27.5711 32.0378 29.8805 30.4672 31.4511C28.8966 33.0217 26.5871 33.9006 23.6333 33.9006H9.68333C6.72956 33.9006 4.42024 33.0217 2.84969 31.4492C1.27908 29.8766 0.4 27.563 0.4 24.6006V10.6506C0.4 7.69683 1.27891 5.38739 2.84951 3.81679C4.42011 2.24619 6.72955 1.36729 9.68333 1.36729H23.65C26.6039 1.36729 28.9131 2.24623 30.4816 3.81662C32.0499 5.38692 32.9248 7.69599 32.9167 10.6495ZM17.0329 23.3306L17.0335 23.3302L19.1669 22.0969L21.2996 20.8639C22.749 20.0294 23.5625 18.8721 23.5625 17.634C23.5625 16.3959 22.7491 15.2386 21.2998 14.4041C21.2997 14.404 21.2996 14.404 21.2996 14.404L19.1669 13.171L17.0335 11.9377L17.0329 11.9373C15.5845 11.1034 14.1756 10.9748 13.1028 11.5913C12.0293 12.2083 11.4333 13.4903 11.4333 15.1673V17.634V20.1006C11.4333 21.7701 12.0297 23.0512 13.1022 23.67C14.1744 24.2887 15.5836 24.1651 17.0329 23.3306Z"
+                                  stroke="url(#paint2_radial_108_3015)" stroke-width="0.8" />
+                              </g>
                             </g>
+                            <defs>
+                              <filter id="filter0_d_108_3015" x="-85" y="-80.0327" width="203.317" height="203.333"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                <feMorphology radius="15" operator="erode" in="SourceAlpha"
+                                  result="effect1_dropShadow_108_3015" />
+                                <feOffset dy="4" />
+                                <feGaussianBlur stdDeviation="50" />
+                                <feComposite in2="hardAlpha" operator="out" />
+                                <feColorMatrix type="matrix"
+                                  values="0 0 0 0 0.996078 0 0 0 0 0.717647 0 0 0 0 0.0117647 0 0 0 0.5 0" />
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_108_3015" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_108_3015"
+                                  result="shape" />
+                              </filter>
+                              <linearGradient id="paint0_linear_108_3015" x1="16.6584" y1="0.967285" x2="16.6584"
+                                y2="34.3006" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#F0D68C" />
+                                <stop offset="1" stop-color="#CCB36E" />
+                              </linearGradient>
+                              <radialGradient id="paint1_radial_108_3015" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(16.6584 0.967285) rotate(90) scale(33.3333 13.315)">
+                                <stop stop-color="white" />
+                                <stop offset="1" stop-color="white" stop-opacity="0" />
+                              </radialGradient>
+                              <radialGradient id="paint2_radial_108_3015" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(16.6584 17.634) rotate(77.1859) scale(29.2912 19.8432)">
+                                <stop stop-color="white" />
+                                <stop offset="1" stop-color="white" stop-opacity="0" />
+                              </radialGradient>
+                              <clipPath id="clip0_108_3015">
+                                <rect width="33.3167" height="33.3333" fill="white" transform="translate(0 0.967285)" />
+                              </clipPath>
+                            </defs>
                           </svg>
-
                         </div>
                         <span class="button-video__text">
                           Смотреть видео о наборе
@@ -929,23 +980,31 @@
               <span class="title title--gold title--small">в поселке Кубачи, расположенном в горах
                 Кавказа</span>
             </h2>
-            <div class="production-video">
-              <img src="images/content/production-img.png" alt="">
-              <div class="production-video__center">
-                <a href="#" class="button-play">
-                  <span class="button-play__circle">
-                    <span class="button-play__icon">
-                      <svg viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M0.0468731 26.942L0.0468731 6.08051C0.0468731 1.80794 4.97265 -0.873318 8.90402 1.26297L18.5012 6.47289L28.0983 11.7046C32.0297 13.8409 32.0297 19.1816 28.0983 21.3179L18.5012 26.5496L8.90402 31.7595C4.97265 33.8958 0.0468731 31.2364 0.0468731 26.942Z"
-                          fill="white"></path>
-                      </svg>
+            <div class="production-video youtube-video">
+              <div class="production-video__main youtube-video__main">
+                <img src=" images/content/production-img.png" alt="">
+                <div class="production-video__center">
+                  <button class="button-play">
+                    <span class="button-play__circle">
+                      <span class="button-play__icon">
+                        <svg viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M0.0468731 26.942L0.0468731 6.08051C0.0468731 1.80794 4.97265 -0.873318 8.90402 1.26297L18.5012 6.47289L28.0983 11.7046C32.0297 13.8409 32.0297 19.1816 28.0983 21.3179L18.5012 26.5496L8.90402 31.7595C4.97265 33.8958 0.0468731 31.2364 0.0468731 26.942Z"
+                            fill="white"></path>
+                        </svg>
+                      </span>
                     </span>
+                  </button>
+                  <span class="production-video__title">Посмотрите
+                    <span class="production-video__text">5-минутное видео о производстве</span>
                   </span>
-                </a>
-                <span class="production-video__title">Посмотрите
-                  <span class="production-video__text">5-минутное видео о производстве</span>
-                </span>
+                </div>
+              </div>
+              <div class="youtube-video__slide">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uCNWuSbPnt4"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
               </div>
             </div>
           </div>
@@ -1040,7 +1099,7 @@
       <div class="advantages advantages--no-bottom advantages--padding-bottom-small">
         <div class="container">
           <div class="advantages__wrap">
-            <h2 class="title advantages__title">
+            <h2 class="title advantages__title advantages__title--min">
               <span class="title title--gold">Почему наборы столового серебра</span>
               заказывают у нас?
             </h2>
@@ -1594,65 +1653,71 @@
             <div class="callback-slide callback-slide--two">
               <div class="thanks">
                 <div class="thanks__icon">
-                  <svg viewBox="0 0 404 404" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d_13_9532)">
-                      <path
-                        d="M202.001 247.854C172.845 247.854 149.146 224.156 149.146 195C149.146 165.844 172.845 142.146 202.001 142.146C231.156 142.146 254.855 165.844 254.855 195C254.855 224.156 231.156 247.854 202.001 247.854ZM202.001 149.521C176.926 149.521 156.521 169.925 156.521 195C156.521 220.075 176.926 240.479 202.001 240.479C227.076 240.479 247.48 220.075 247.48 195C247.48 169.925 227.076 149.521 202.001 149.521Z"
-                        fill="#292D32" />
-                      <path
-                        d="M202.001 247.854C172.845 247.854 149.146 224.156 149.146 195C149.146 165.844 172.845 142.146 202.001 142.146C231.156 142.146 254.855 165.844 254.855 195C254.855 224.156 231.156 247.854 202.001 247.854ZM202.001 149.521C176.926 149.521 156.521 169.925 156.521 195C156.521 220.075 176.926 240.479 202.001 240.479C227.076 240.479 247.48 220.075 247.48 195C247.48 169.925 227.076 149.521 202.001 149.521Z"
-                        fill="url(#paint0_linear_13_9532)" />
-                      <path
-                        d="M202.001 247.854C172.845 247.854 149.146 224.156 149.146 195C149.146 165.844 172.845 142.146 202.001 142.146C231.156 142.146 254.855 165.844 254.855 195C254.855 224.156 231.156 247.854 202.001 247.854ZM202.001 149.521C176.926 149.521 156.521 169.925 156.521 195C156.521 220.075 176.926 240.479 202.001 240.479C227.076 240.479 247.48 220.075 247.48 195C247.48 169.925 227.076 149.521 202.001 149.521Z"
-                        fill="url(#paint1_radial_13_9532)" fill-opacity="0.75" />
-                      <path
-                        d="M195.019 212.602C194.035 212.602 193.101 212.209 192.413 211.521L178.499 197.606C177.073 196.181 177.073 193.821 178.499 192.395C179.925 190.969 182.285 190.969 183.71 192.395L195.019 203.703L220.29 178.431C221.716 177.006 224.076 177.006 225.502 178.431C226.928 179.857 226.928 182.217 225.502 183.643L197.625 211.521C196.936 212.209 196.002 212.602 195.019 212.602Z"
-                        fill="#292D32" />
-                      <path
-                        d="M195.019 212.602C194.035 212.602 193.101 212.209 192.413 211.521L178.499 197.606C177.073 196.181 177.073 193.821 178.499 192.395C179.925 190.969 182.285 190.969 183.71 192.395L195.019 203.703L220.29 178.431C221.716 177.006 224.076 177.006 225.502 178.431C226.928 179.857 226.928 182.217 225.502 183.643L197.625 211.521C196.936 212.209 196.002 212.602 195.019 212.602Z"
-                        fill="url(#paint2_linear_13_9532)" />
-                      <path
-                        d="M195.019 212.602C194.035 212.602 193.101 212.209 192.413 211.521L178.499 197.606C177.073 196.181 177.073 193.821 178.499 192.395C179.925 190.969 182.285 190.969 183.71 192.395L195.019 203.703L220.29 178.431C221.716 177.006 224.076 177.006 225.502 178.431C226.928 179.857 226.928 182.217 225.502 183.643L197.625 211.521C196.936 212.209 196.002 212.602 195.019 212.602Z"
-                        fill="url(#paint3_radial_13_9532)" fill-opacity="0.75" />
+                  <svg viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_106_3005)">
+                      <g filter="url(#filter0_d_106_3005)">
+                        <path
+                          d="M52.8542 105.708C23.6983 105.708 0 82.01 0 52.8542C0 23.6983 23.6983 0 52.8542 0C82.01 0 105.708 23.6983 105.708 52.8542C105.708 82.01 82.01 105.708 52.8542 105.708ZM52.8542 7.375C27.7792 7.375 7.375 27.7792 7.375 52.8542C7.375 77.9292 27.7792 98.3333 52.8542 98.3333C77.9292 98.3333 98.3333 77.9292 98.3333 52.8542C98.3333 27.7792 77.9292 7.375 52.8542 7.375Z"
+                          fill="#292D32" />
+                        <path
+                          d="M52.8542 105.708C23.6983 105.708 0 82.01 0 52.8542C0 23.6983 23.6983 0 52.8542 0C82.01 0 105.708 23.6983 105.708 52.8542C105.708 82.01 82.01 105.708 52.8542 105.708ZM52.8542 7.375C27.7792 7.375 7.375 27.7792 7.375 52.8542C7.375 77.9292 27.7792 98.3333 52.8542 98.3333C77.9292 98.3333 98.3333 77.9292 98.3333 52.8542C98.3333 27.7792 77.9292 7.375 52.8542 7.375Z"
+                          fill="url(#paint0_linear_106_3005)" />
+                        <path
+                          d="M52.8542 105.708C23.6983 105.708 0 82.01 0 52.8542C0 23.6983 23.6983 0 52.8542 0C82.01 0 105.708 23.6983 105.708 52.8542C105.708 82.01 82.01 105.708 52.8542 105.708ZM52.8542 7.375C27.7792 7.375 7.375 27.7792 7.375 52.8542C7.375 77.9292 27.7792 98.3333 52.8542 98.3333C77.9292 98.3333 98.3333 77.9292 98.3333 52.8542C98.3333 27.7792 77.9292 7.375 52.8542 7.375Z"
+                          fill="url(#paint1_radial_106_3005)" fill-opacity="0.75" />
+                        <path
+                          d="M45.8722 70.4563C44.8889 70.4563 43.9547 70.063 43.2664 69.3746L29.3522 55.4605C27.9264 54.0347 27.9264 51.6747 29.3522 50.2488C30.778 48.823 33.138 48.823 34.5639 50.2488L45.8722 61.5572L71.1439 36.2855C72.5697 34.8596 74.9297 34.8596 76.3556 36.2855C77.7814 37.7113 77.7814 40.0713 76.3556 41.4971L48.478 69.3746C47.7897 70.063 46.8555 70.4563 45.8722 70.4563Z"
+                          fill="#292D32" />
+                        <path
+                          d="M45.8722 70.4563C44.8889 70.4563 43.9547 70.063 43.2664 69.3746L29.3522 55.4605C27.9264 54.0347 27.9264 51.6747 29.3522 50.2488C30.778 48.823 33.138 48.823 34.5639 50.2488L45.8722 61.5572L71.1439 36.2855C72.5697 34.8596 74.9297 34.8596 76.3556 36.2855C77.7814 37.7113 77.7814 40.0713 76.3556 41.4971L48.478 69.3746C47.7897 70.063 46.8555 70.4563 45.8722 70.4563Z"
+                          fill="url(#paint2_linear_106_3005)" />
+                        <path
+                          d="M45.8722 70.4563C44.8889 70.4563 43.9547 70.063 43.2664 69.3746L29.3522 55.4605C27.9264 54.0347 27.9264 51.6747 29.3522 50.2488C30.778 48.823 33.138 48.823 34.5639 50.2488L45.8722 61.5572L71.1439 36.2855C72.5697 34.8596 74.9297 34.8596 76.3556 36.2855C77.7814 37.7113 77.7814 40.0713 76.3556 41.4971L48.478 69.3746C47.7897 70.063 46.8555 70.4563 45.8722 70.4563Z"
+                          fill="url(#paint3_radial_106_3005)" fill-opacity="0.75" />
+                      </g>
                     </g>
                     <defs>
-                      <filter id="filter0_d_13_9532" x="0.216173" y="0.22417" width="403.57" height="403.569"
+                      <filter id="filter0_d_106_3005" x="-148.93" y="-141.922" width="403.57" height="403.569"
                         filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                         <feFlood flood-opacity="0" result="BackgroundImageFix" />
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                           result="hardAlpha" />
                         <feMorphology radius="26.2818" operator="erode" in="SourceAlpha"
-                          result="effect1_dropShadow_13_9532" />
+                          result="effect1_dropShadow_106_3005" />
                         <feOffset dy="7.00848" />
                         <feGaussianBlur stdDeviation="87.6061" />
                         <feComposite in2="hardAlpha" operator="out" />
                         <feColorMatrix type="matrix"
                           values="0 0 0 0 0.996078 0 0 0 0 0.717647 0 0 0 0 0.0117647 0 0 0 0.5 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_13_9532" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_13_9532" result="shape" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_106_3005" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_106_3005" result="shape" />
                       </filter>
-                      <linearGradient id="paint0_linear_13_9532" x1="202.001" y1="142.146" x2="202.001" y2="247.854"
+                      <linearGradient id="paint0_linear_106_3005" x1="52.8542" y1="0" x2="52.8542" y2="105.708"
                         gradientUnits="userSpaceOnUse">
                         <stop stop-color="#F0D68C" />
                         <stop offset="1" stop-color="#CCB36E" />
                       </linearGradient>
-                      <radialGradient id="paint1_radial_13_9532" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                        gradientTransform="translate(202.001 142.146) rotate(90) scale(105.708 42.2461)">
+                      <radialGradient id="paint1_radial_106_3005" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(52.8542) rotate(90) scale(105.708 42.2461)">
                         <stop stop-color="white" />
                         <stop offset="1" stop-color="white" stop-opacity="0" />
                       </radialGradient>
-                      <linearGradient id="paint2_linear_13_9532" x1="202.001" y1="142.146" x2="202.001" y2="247.854"
+                      <linearGradient id="paint2_linear_106_3005" x1="52.8542" y1="0" x2="52.8542" y2="105.708"
                         gradientUnits="userSpaceOnUse">
                         <stop stop-color="#F0D68C" />
                         <stop offset="1" stop-color="#CCB36E" />
                       </linearGradient>
-                      <radialGradient id="paint3_radial_13_9532" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                        gradientTransform="translate(202.001 142.146) rotate(90) scale(105.708 42.2461)">
+                      <radialGradient id="paint3_radial_106_3005" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(52.8542) rotate(90) scale(105.708 42.2461)">
                         <stop stop-color="white" />
                         <stop offset="1" stop-color="white" stop-opacity="0" />
                       </radialGradient>
+                      <clipPath id="clip0_106_3005">
+                        <rect width="106" height="106" fill="white" />
+                      </clipPath>
                     </defs>
                   </svg>
+
                 </div>
                 <span class="popup__title">Благодарим за вашу заявку!</span>
                 <p class="popup__desc">Наш менеджер свяжется с вами в течение 15 минут, чтобы ответить на все вопросы
@@ -1681,14 +1746,16 @@
             <div class="popup__flex">
               <div class="popup__block popup__block--big">
                 <div class="order-slide order-slide--one order-slide--active">
-                  <span class="popup__title">Закажите набор столовых приборов из серебра</span>
-                  <div class="order-slide__flex">
-                    <span class="popup__title popup__title--gold">от «АПАНДЕ»</span>
-                    <div class="steps">
-                      <span class="steps__text">
-                        <span class="steps__text steps__text--current">шаг 1 </span>
-                        из 2
-                      </span>
+                  <div class="order-header">
+                    <span class="popup__title">Закажите набор столовых приборов из серебра</span>
+                    <div class="order-slide__flex">
+                      <span class="popup__title popup__title--gold">от «АПАНДЕ»</span>
+                      <div class="steps">
+                        <span class="steps__text">
+                          <span class="steps__text steps__text--current">шаг 1 </span>
+                          из 2
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div class="popup-quiz">
@@ -1729,14 +1796,16 @@
                   </button>
                 </div>
                 <div class="order-slide order-slide--two">
-                  <span class="popup__title">Закажите набор столовых приборов из серебра</span>
-                  <div class="order-slide__flex">
-                    <span class="popup__title popup__title--gold">от «АПАНДЕ»</span>
-                    <div class="steps">
-                      <span class="steps__text">
-                        <span class="steps__text steps__text--current">шаг 2 </span>
-                        из 2
-                      </span>
+                  <div class="order-header">
+                    <span class="popup__title">Закажите набор столовых приборов из серебра</span>
+                    <div class="order-slide__flex">
+                      <span class="popup__title popup__title--gold">от «АПАНДЕ»</span>
+                      <div class="steps">
+                        <span class="steps__text">
+                          <span class="steps__text steps__text--current">шаг 2 </span>
+                          из 2
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <span class="popup-questions">Каким способом с вами связаться?</span>
@@ -1860,8 +1929,10 @@
                     с <a href="#" class="popup-policy">Пользовательским соглашением</a></p>
                 </div>
                 <div class="order-slide order-slide--three">
-                  <span class="popup__title">Готово! Наш менеджер свяжется с Вами для уточнения деталей в течение
-                    дня.</span>
+                  <div class="order-header">
+                    <span class="popup__title">Готово! Наш менеджер свяжется с Вами для уточнения деталей в течение
+                      дня.</span>
+                  </div>
                   <p class="popup__desc popup__desc--big">Чтобы не было скучно в момент ожидания, можете познакомиться с
                     нашей компанией в соцсетях:</p>
                   <div class="social">
@@ -1957,61 +2028,7 @@
                   </div>
                   <div class="reminder">
                     <div class="reminder__icon">
-                      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M19.9378 13.896C18.947 13.896 18.1253 13.0743 18.1253 12.0835V4.8335C18.1253 3.84266 18.947 3.021 19.9378 3.021C20.9287 3.021 21.7503 3.84266 21.7503 4.8335V12.0835C21.7503 13.0743 20.9287 13.896 19.9378 13.896Z"
-                          fill="url(#paint0_linear_15_5298)" />
-                        <path
-                          d="M19.9378 13.896C18.947 13.896 18.1253 13.0743 18.1253 12.0835V4.8335C18.1253 3.84266 18.947 3.021 19.9378 3.021C20.9287 3.021 21.7503 3.84266 21.7503 4.8335V12.0835C21.7503 13.0743 20.9287 13.896 19.9378 13.896Z"
-                          fill="url(#paint1_radial_15_5298)" fill-opacity="0.75" />
-                        <path
-                          d="M38.0628 13.896C37.072 13.896 36.2503 13.0743 36.2503 12.0835V4.8335C36.2503 3.84266 37.072 3.021 38.0628 3.021C39.0537 3.021 39.8753 3.84266 39.8753 4.8335V12.0835C39.8753 13.0743 39.0537 13.896 38.0628 13.896Z"
-                          fill="url(#paint2_linear_15_5298)" />
-                        <path
-                          d="M38.0628 13.896C37.072 13.896 36.2503 13.0743 36.2503 12.0835V4.8335C36.2503 3.84266 37.072 3.021 38.0628 3.021C39.0537 3.021 39.8753 3.84266 39.8753 4.8335V12.0835C39.8753 13.0743 39.0537 13.896 38.0628 13.896Z"
-                          fill="url(#paint3_radial_15_5298)" fill-opacity="0.75" />
-                        <path
-                          d="M47.2945 10.8752C45.6995 9.691 43.4037 10.8268 43.4037 12.8327V13.0743C43.4037 15.9018 41.3737 18.5118 38.5462 18.8018C35.2837 19.1402 32.5287 16.5785 32.5287 13.3885V10.8752C32.5287 9.546 31.4412 8.4585 30.112 8.4585H27.8887C26.5595 8.4585 25.472 9.546 25.472 10.8752V13.3885C25.472 15.2977 24.4812 16.9893 22.9828 17.9318C22.7653 18.0768 22.5237 18.1977 22.282 18.3185C22.0645 18.4393 21.8228 18.536 21.557 18.6085C21.267 18.7052 20.9528 18.7777 20.6145 18.8018C20.2278 18.8502 19.8412 18.8502 19.4545 18.8018C19.1162 18.7777 18.802 18.7052 18.512 18.6085C18.2703 18.536 18.0287 18.4393 17.787 18.3185C17.5453 18.1977 17.3037 18.0768 17.0862 17.9318C15.5637 16.8685 14.597 15.0318 14.597 13.0743V12.8327C14.597 10.9718 12.6153 9.86016 11.0445 10.6577C11.0203 10.6818 10.9962 10.6818 10.972 10.706C10.8753 10.7543 10.8028 10.8027 10.7062 10.8752C10.6337 10.9477 10.537 10.996 10.4645 11.0685C9.78783 11.6002 9.18366 12.2043 8.67616 12.8568C8.41033 13.1468 8.19283 13.461 7.99949 13.7752C7.97533 13.7993 7.95116 13.8235 7.92699 13.8718C7.70949 14.186 7.51616 14.5485 7.34699 14.8868C7.29866 14.9352 7.27449 14.9593 7.27449 15.0077C7.12949 15.2977 6.98449 15.5877 6.88783 15.9018C6.81533 16.0227 6.79116 16.1193 6.74283 16.2402C6.59783 16.6027 6.50116 16.9652 6.40449 17.3277C6.30783 17.666 6.23533 18.0285 6.18699 18.391C6.13866 18.6568 6.11449 18.9227 6.09033 19.2127C6.06616 19.551 6.04199 19.8893 6.04199 20.2277V41.3977C6.04199 47.8985 11.3103 53.1668 17.8112 53.1668H40.1895C46.6903 53.1668 51.9587 47.8985 51.9587 41.3977V20.2277C51.9587 16.3852 50.122 13.026 47.2945 10.8752Z"
-                          fill="url(#paint4_linear_15_5298)" />
-                        <path
-                          d="M47.2945 10.8752C45.6995 9.691 43.4037 10.8268 43.4037 12.8327V13.0743C43.4037 15.9018 41.3737 18.5118 38.5462 18.8018C35.2837 19.1402 32.5287 16.5785 32.5287 13.3885V10.8752C32.5287 9.546 31.4412 8.4585 30.112 8.4585H27.8887C26.5595 8.4585 25.472 9.546 25.472 10.8752V13.3885C25.472 15.2977 24.4812 16.9893 22.9828 17.9318C22.7653 18.0768 22.5237 18.1977 22.282 18.3185C22.0645 18.4393 21.8228 18.536 21.557 18.6085C21.267 18.7052 20.9528 18.7777 20.6145 18.8018C20.2278 18.8502 19.8412 18.8502 19.4545 18.8018C19.1162 18.7777 18.802 18.7052 18.512 18.6085C18.2703 18.536 18.0287 18.4393 17.787 18.3185C17.5453 18.1977 17.3037 18.0768 17.0862 17.9318C15.5637 16.8685 14.597 15.0318 14.597 13.0743V12.8327C14.597 10.9718 12.6153 9.86016 11.0445 10.6577C11.0203 10.6818 10.9962 10.6818 10.972 10.706C10.8753 10.7543 10.8028 10.8027 10.7062 10.8752C10.6337 10.9477 10.537 10.996 10.4645 11.0685C9.78783 11.6002 9.18366 12.2043 8.67616 12.8568C8.41033 13.1468 8.19283 13.461 7.99949 13.7752C7.97533 13.7993 7.95116 13.8235 7.92699 13.8718C7.70949 14.186 7.51616 14.5485 7.34699 14.8868C7.29866 14.9352 7.27449 14.9593 7.27449 15.0077C7.12949 15.2977 6.98449 15.5877 6.88783 15.9018C6.81533 16.0227 6.79116 16.1193 6.74283 16.2402C6.59783 16.6027 6.50116 16.9652 6.40449 17.3277C6.30783 17.666 6.23533 18.0285 6.18699 18.391C6.13866 18.6568 6.11449 18.9227 6.09033 19.2127C6.06616 19.551 6.04199 19.8893 6.04199 20.2277V41.3977C6.04199 47.8985 11.3103 53.1668 17.8112 53.1668H40.1895C46.6903 53.1668 51.9587 47.8985 51.9587 41.3977V20.2277C51.9587 16.3852 50.122 13.026 47.2945 10.8752Z"
-                          fill="url(#paint5_radial_15_5298)" fill-opacity="0.75" />
-                        <path
-                          d="M20.2364 41V39.0864C21.9975 37.3531 23.1553 36.1675 23.71 35.5296C25.4295 33.5605 26.2892 31.9035 26.2892 30.5584C26.2892 29.9621 26.1297 29.4976 25.8108 29.1648C25.4919 28.832 25.0343 28.6656 24.438 28.6656C23.9249 28.6656 23.4812 28.8389 23.1068 29.1856C22.7463 29.5184 22.4897 29.9968 22.3372 30.6208L20.3404 29.7264C20.5345 28.6587 21.0199 27.8197 21.7964 27.2096C22.5868 26.5856 23.5575 26.2736 24.7084 26.2736C26.0119 26.2736 27.0241 26.648 27.7452 27.3968C28.4663 28.1456 28.8268 29.04 28.8268 30.08C28.8268 30.8427 28.6673 31.64 28.3484 32.472C28.0295 33.2901 27.662 34.0043 27.246 34.6144C26.83 35.2245 26.3239 35.8485 25.7276 36.4864C25.1452 37.1243 24.6876 37.5957 24.3548 37.9008C24.0359 38.192 23.6961 38.4832 23.3356 38.7744H29.3884V41H20.2364ZM30.8322 29.1856L34.5554 26.3984H36.2818V41H33.8898V29.8096L32.101 31.1616L30.8322 29.1856Z"
-                          fill="#070707" />
-                        <defs>
-                          <linearGradient id="paint0_linear_15_5298" x1="29.0003" y1="3.021" x2="29.0003" y2="53.1668"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#F0D68C" />
-                            <stop offset="1" stop-color="#CCB36E" />
-                          </linearGradient>
-                          <radialGradient id="paint1_radial_15_5298" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(29.0003 3.021) rotate(90) scale(50.1458 18.3505)">
-                            <stop stop-color="white" />
-                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                          </radialGradient>
-                          <linearGradient id="paint2_linear_15_5298" x1="29.0003" y1="3.021" x2="29.0003" y2="53.1668"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#F0D68C" />
-                            <stop offset="1" stop-color="#CCB36E" />
-                          </linearGradient>
-                          <radialGradient id="paint3_radial_15_5298" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(29.0003 3.021) rotate(90) scale(50.1458 18.3505)">
-                            <stop stop-color="white" />
-                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                          </radialGradient>
-                          <linearGradient id="paint4_linear_15_5298" x1="29.0003" y1="3.021" x2="29.0003" y2="53.1668"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#F0D68C" />
-                            <stop offset="1" stop-color="#CCB36E" />
-                          </linearGradient>
-                          <radialGradient id="paint5_radial_15_5298" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(29.0003 3.021) rotate(90) scale(50.1458 18.3505)">
-                            <stop stop-color="white" />
-                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                          </radialGradient>
-                        </defs>
-                      </svg>
+                      <img src="images/content/reminder-icon-img.svg" alt="">
                     </div>
                     <p class="reminder__text">Просим обратить внимание на то, что при индивидуальном заказе срок
                       изготовления около 21 дня</p>
@@ -2022,6 +2039,34 @@
                 </div>
               </div>
               <div class="popup-prev">
+                <div class="order-header order-header--dublicate order-header--one order-header--active">
+                  <span class="popup__title">Закажите набор столовых приборов из серебра</span>
+                  <div class="order-slide__flex">
+                    <span class="popup__title popup__title--gold">от «АПАНДЕ»</span>
+                    <div class="steps">
+                      <span class="steps__text">
+                        <span class="steps__text steps__text--current">шаг 1 </span>
+                        из 2
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="order-header order-header--dublicate order-header--two">
+                  <span class="popup__title">Закажите набор столовых приборов из серебра</span>
+                  <div class="order-slide__flex">
+                    <span class="popup__title popup__title--gold">от «АПАНДЕ»</span>
+                    <div class="steps">
+                      <span class="steps__text">
+                        <span class="steps__text steps__text--current">шаг 2 </span>
+                        из 2
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="order-header order-header--dublicate order-header--three">
+                  <span class="popup__title">Готово! Наш менеджер свяжется с Вами для уточнения деталей в течение
+                    дня.</span>
+                </div>
                 <div class="order-img">
                   <img src="images/content/order-img.png" alt="">
                 </div>
@@ -2379,61 +2424,7 @@
                   </div>
                   <div class="reminder">
                     <div class="reminder__icon">
-                      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M19.9378 13.896C18.947 13.896 18.1253 13.0743 18.1253 12.0835V4.8335C18.1253 3.84266 18.947 3.021 19.9378 3.021C20.9287 3.021 21.7503 3.84266 21.7503 4.8335V12.0835C21.7503 13.0743 20.9287 13.896 19.9378 13.896Z"
-                          fill="url(#paint0_linear_15_5298)"></path>
-                        <path
-                          d="M19.9378 13.896C18.947 13.896 18.1253 13.0743 18.1253 12.0835V4.8335C18.1253 3.84266 18.947 3.021 19.9378 3.021C20.9287 3.021 21.7503 3.84266 21.7503 4.8335V12.0835C21.7503 13.0743 20.9287 13.896 19.9378 13.896Z"
-                          fill="url(#paint1_radial_15_5298)" fill-opacity="0.75"></path>
-                        <path
-                          d="M38.0628 13.896C37.072 13.896 36.2503 13.0743 36.2503 12.0835V4.8335C36.2503 3.84266 37.072 3.021 38.0628 3.021C39.0537 3.021 39.8753 3.84266 39.8753 4.8335V12.0835C39.8753 13.0743 39.0537 13.896 38.0628 13.896Z"
-                          fill="url(#paint2_linear_15_5298)"></path>
-                        <path
-                          d="M38.0628 13.896C37.072 13.896 36.2503 13.0743 36.2503 12.0835V4.8335C36.2503 3.84266 37.072 3.021 38.0628 3.021C39.0537 3.021 39.8753 3.84266 39.8753 4.8335V12.0835C39.8753 13.0743 39.0537 13.896 38.0628 13.896Z"
-                          fill="url(#paint3_radial_15_5298)" fill-opacity="0.75"></path>
-                        <path
-                          d="M47.2945 10.8752C45.6995 9.691 43.4037 10.8268 43.4037 12.8327V13.0743C43.4037 15.9018 41.3737 18.5118 38.5462 18.8018C35.2837 19.1402 32.5287 16.5785 32.5287 13.3885V10.8752C32.5287 9.546 31.4412 8.4585 30.112 8.4585H27.8887C26.5595 8.4585 25.472 9.546 25.472 10.8752V13.3885C25.472 15.2977 24.4812 16.9893 22.9828 17.9318C22.7653 18.0768 22.5237 18.1977 22.282 18.3185C22.0645 18.4393 21.8228 18.536 21.557 18.6085C21.267 18.7052 20.9528 18.7777 20.6145 18.8018C20.2278 18.8502 19.8412 18.8502 19.4545 18.8018C19.1162 18.7777 18.802 18.7052 18.512 18.6085C18.2703 18.536 18.0287 18.4393 17.787 18.3185C17.5453 18.1977 17.3037 18.0768 17.0862 17.9318C15.5637 16.8685 14.597 15.0318 14.597 13.0743V12.8327C14.597 10.9718 12.6153 9.86016 11.0445 10.6577C11.0203 10.6818 10.9962 10.6818 10.972 10.706C10.8753 10.7543 10.8028 10.8027 10.7062 10.8752C10.6337 10.9477 10.537 10.996 10.4645 11.0685C9.78783 11.6002 9.18366 12.2043 8.67616 12.8568C8.41033 13.1468 8.19283 13.461 7.99949 13.7752C7.97533 13.7993 7.95116 13.8235 7.92699 13.8718C7.70949 14.186 7.51616 14.5485 7.34699 14.8868C7.29866 14.9352 7.27449 14.9593 7.27449 15.0077C7.12949 15.2977 6.98449 15.5877 6.88783 15.9018C6.81533 16.0227 6.79116 16.1193 6.74283 16.2402C6.59783 16.6027 6.50116 16.9652 6.40449 17.3277C6.30783 17.666 6.23533 18.0285 6.18699 18.391C6.13866 18.6568 6.11449 18.9227 6.09033 19.2127C6.06616 19.551 6.04199 19.8893 6.04199 20.2277V41.3977C6.04199 47.8985 11.3103 53.1668 17.8112 53.1668H40.1895C46.6903 53.1668 51.9587 47.8985 51.9587 41.3977V20.2277C51.9587 16.3852 50.122 13.026 47.2945 10.8752Z"
-                          fill="url(#paint4_linear_15_5298)"></path>
-                        <path
-                          d="M47.2945 10.8752C45.6995 9.691 43.4037 10.8268 43.4037 12.8327V13.0743C43.4037 15.9018 41.3737 18.5118 38.5462 18.8018C35.2837 19.1402 32.5287 16.5785 32.5287 13.3885V10.8752C32.5287 9.546 31.4412 8.4585 30.112 8.4585H27.8887C26.5595 8.4585 25.472 9.546 25.472 10.8752V13.3885C25.472 15.2977 24.4812 16.9893 22.9828 17.9318C22.7653 18.0768 22.5237 18.1977 22.282 18.3185C22.0645 18.4393 21.8228 18.536 21.557 18.6085C21.267 18.7052 20.9528 18.7777 20.6145 18.8018C20.2278 18.8502 19.8412 18.8502 19.4545 18.8018C19.1162 18.7777 18.802 18.7052 18.512 18.6085C18.2703 18.536 18.0287 18.4393 17.787 18.3185C17.5453 18.1977 17.3037 18.0768 17.0862 17.9318C15.5637 16.8685 14.597 15.0318 14.597 13.0743V12.8327C14.597 10.9718 12.6153 9.86016 11.0445 10.6577C11.0203 10.6818 10.9962 10.6818 10.972 10.706C10.8753 10.7543 10.8028 10.8027 10.7062 10.8752C10.6337 10.9477 10.537 10.996 10.4645 11.0685C9.78783 11.6002 9.18366 12.2043 8.67616 12.8568C8.41033 13.1468 8.19283 13.461 7.99949 13.7752C7.97533 13.7993 7.95116 13.8235 7.92699 13.8718C7.70949 14.186 7.51616 14.5485 7.34699 14.8868C7.29866 14.9352 7.27449 14.9593 7.27449 15.0077C7.12949 15.2977 6.98449 15.5877 6.88783 15.9018C6.81533 16.0227 6.79116 16.1193 6.74283 16.2402C6.59783 16.6027 6.50116 16.9652 6.40449 17.3277C6.30783 17.666 6.23533 18.0285 6.18699 18.391C6.13866 18.6568 6.11449 18.9227 6.09033 19.2127C6.06616 19.551 6.04199 19.8893 6.04199 20.2277V41.3977C6.04199 47.8985 11.3103 53.1668 17.8112 53.1668H40.1895C46.6903 53.1668 51.9587 47.8985 51.9587 41.3977V20.2277C51.9587 16.3852 50.122 13.026 47.2945 10.8752Z"
-                          fill="url(#paint5_radial_15_5298)" fill-opacity="0.75"></path>
-                        <path
-                          d="M20.2364 41V39.0864C21.9975 37.3531 23.1553 36.1675 23.71 35.5296C25.4295 33.5605 26.2892 31.9035 26.2892 30.5584C26.2892 29.9621 26.1297 29.4976 25.8108 29.1648C25.4919 28.832 25.0343 28.6656 24.438 28.6656C23.9249 28.6656 23.4812 28.8389 23.1068 29.1856C22.7463 29.5184 22.4897 29.9968 22.3372 30.6208L20.3404 29.7264C20.5345 28.6587 21.0199 27.8197 21.7964 27.2096C22.5868 26.5856 23.5575 26.2736 24.7084 26.2736C26.0119 26.2736 27.0241 26.648 27.7452 27.3968C28.4663 28.1456 28.8268 29.04 28.8268 30.08C28.8268 30.8427 28.6673 31.64 28.3484 32.472C28.0295 33.2901 27.662 34.0043 27.246 34.6144C26.83 35.2245 26.3239 35.8485 25.7276 36.4864C25.1452 37.1243 24.6876 37.5957 24.3548 37.9008C24.0359 38.192 23.6961 38.4832 23.3356 38.7744H29.3884V41H20.2364ZM30.8322 29.1856L34.5554 26.3984H36.2818V41H33.8898V29.8096L32.101 31.1616L30.8322 29.1856Z"
-                          fill="#070707"></path>
-                        <defs>
-                          <linearGradient id="paint0_linear_15_5298" x1="29.0003" y1="3.021" x2="29.0003" y2="53.1668"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#F0D68C"></stop>
-                            <stop offset="1" stop-color="#CCB36E"></stop>
-                          </linearGradient>
-                          <radialGradient id="paint1_radial_15_5298" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(29.0003 3.021) rotate(90) scale(50.1458 18.3505)">
-                            <stop stop-color="white"></stop>
-                            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
-                          </radialGradient>
-                          <linearGradient id="paint2_linear_15_5298" x1="29.0003" y1="3.021" x2="29.0003" y2="53.1668"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#F0D68C"></stop>
-                            <stop offset="1" stop-color="#CCB36E"></stop>
-                          </linearGradient>
-                          <radialGradient id="paint3_radial_15_5298" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(29.0003 3.021) rotate(90) scale(50.1458 18.3505)">
-                            <stop stop-color="white"></stop>
-                            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
-                          </radialGradient>
-                          <linearGradient id="paint4_linear_15_5298" x1="29.0003" y1="3.021" x2="29.0003" y2="53.1668"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#F0D68C"></stop>
-                            <stop offset="1" stop-color="#CCB36E"></stop>
-                          </linearGradient>
-                          <radialGradient id="paint5_radial_15_5298" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(29.0003 3.021) rotate(90) scale(50.1458 18.3505)">
-                            <stop stop-color="white"></stop>
-                            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
-                          </radialGradient>
-                        </defs>
-                      </svg>
+                      <img src="images/content/reminder-icon-img.svg" alt="">
                     </div>
                     <p class="reminder__text">Просим обратить внимание на то, что при индивидуальном заказе срок
                       изготовления около 21 дня</p>
