@@ -1703,6 +1703,14 @@
   .swiper-slide {
     background-size: cover;
     background-position: center;
+    position: relative;
+
+    .card-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   .card-swiper2 {
@@ -1837,6 +1845,35 @@
       border-top-right-radius: 50%;
       border-bottom-right-radius: 50%;
     }
+  }
+}
+
+.card-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  background: linear-gradient(180deg, #ffdf84 0%, #d5ad3d 100%);
+  box-shadow: 0px 1.33228px 33.3069px -4.99604px rgba(254, 183, 3, 0.5);
+  border-radius: 50%;
+  padding: 12px;
+
+  @media screen and (max-width: 1000px) {
+    width: 27px;
+    height: 27px;
+    padding: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 21px;
+    height: 21px;
+    padding: 6px;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -2158,13 +2195,13 @@
   overflow: hidden;
   max-height: 870px;
 
-  @media screen and (max-width: 1200px) {
-    max-height: 750px;
-  }
+  // @media screen and (max-width: 1200px) {
+  //   max-height: 750px;
+  // }
 
   @media screen and (max-width: 1000px) {
     margin-top: 40px;
-    max-height: 565px;
+    max-height: 600px;
   }
 
   @media screen and (max-width: 768px) {
@@ -2452,6 +2489,16 @@
       height: 185px;
       bottom: -50px;
     }
+
+    @media screen and (max-width: 768px) {
+      height: 142px;
+      bottom: -43px;
+    }
+
+    @media screen and (max-width: 700px) {
+      height: 126px;
+      bottom: -18px;
+    }
   }
 }
 
@@ -2591,7 +2638,7 @@
 
       @media screen and (max-width: 700px) {
         font-size: 15px;
-        padding: 21px;
+        // padding: 21px;
       }
 
       @media screen and (max-width: 600px) {
@@ -4983,6 +5030,7 @@
       justify-content: center;
       gap: 8px;
       margin-top: 41px;
+      z-index: 1;
 
       @media screen and (max-width: 1000px) {
         gap: 24px;
@@ -6124,6 +6172,14 @@ body.lock {
   }
 }
 
+.order-email {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
 .steps {
   background: linear-gradient(131.31deg, #1b1b1b 26.14%, #070707 68.57%, #000000 88.19%);
   box-shadow: 0px 14px 43px rgba(163, 169, 183, 0.1);
@@ -6646,8 +6702,12 @@ body.lock {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 24px;
+    height: 24px;
 
     svg {
+      width: 100%;
+      height: 100%;
       path {
         fill: #fff;
       }
@@ -6852,6 +6912,36 @@ body.lock {
 
     .youtube-video__slide {
       display: block;
+    }
+  }
+}
+
+.reviews-video {
+  width: 100%;
+  height: 100%;
+}
+
+.popup-reviews-video {
+  .popup__content {
+    width: 1000px;
+    height: 700px;
+    background: rgba(17, 17, 17, 1);
+
+    @media screen and (max-width: 1400px) {
+      height: 500px;
+    }
+
+    @media screen and (max-width: 1050px) {
+      width: 100%;
+      padding: 18px;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 400px;
+    }
+
+    @media screen and (max-width: 500px) {
+      height: 300px;
     }
   }
 }

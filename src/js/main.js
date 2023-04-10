@@ -222,6 +222,36 @@ const presentationVideoPlay = () => {
 
 presentationVideoPlay();
 
+const mailingPopupChange = () => {
+  const mailingPopup = document.querySelectorAll('.popup');
+  mailingPopup.forEach((item) => {
+    const mailingRadio = item.querySelectorAll('.mailing-item');
+    const mailingPopupButtonEmail = item.querySelector('.mailing-item--email');
+    const mailingPopupButton = item.querySelectorAll('.mailing-item');
+    const mailingPopupInput = item.querySelector('.order-email');
+    mailingRadio.forEach((item1) => {
+      item1.addEventListener('click', (e) => {
+        mailingRadio.forEach((item3) => {
+          item3.classList.remove('mailing-item--active');
+          e.currentTarget.classList.add('mailing-item--active');
+        });
+      });
+    });
+    if (item.contains(mailingPopupButtonEmail)) {
+      mailingPopupButton.forEach((item2) => {
+        item2.addEventListener('click', () => {
+          mailingPopupInput.classList.remove('order-email--active');
+        });
+      });
+      mailingPopupButtonEmail.addEventListener('click', () => {
+        mailingPopupInput.classList.add('order-email--active');
+      });
+    }
+  });
+};
+
+mailingPopupChange();
+
 // const mailingChange = () => {
 //   const mailingButton = document.querySelectorAll('.mailing-item');
 //   mailingButton.forEach((item) => {
