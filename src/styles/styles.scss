@@ -253,7 +253,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 3;
+  z-index: 4;
   transition: 0.2s;
   cursor: pointer;
 
@@ -609,7 +609,6 @@
   font-family: 'Neumann';
   font-weight: 400;
   font-size: 48px;
-  // line-height: 129.3%;
   text-align: center;
   background: linear-gradient(180deg, #c7babb 8.14%, #ffffff 57.46%, #ffffff 100.29%),
     linear-gradient(180deg, #f0d68c 0%, #ccb36e 100%),
@@ -735,7 +734,6 @@
 
   @media screen and (max-width: 700px) {
     height: auto;
-    // min-height: 1000px;
   }
 
   &:before {
@@ -1364,8 +1362,6 @@
     top: -2px;
     right: -2px;
     bottom: -2px;
-    // left: 0;
-    // transform: translate(-2px, -2px);
     width: 100%;
     height: 102%;
     z-index: -1;
@@ -1375,7 +1371,6 @@
     }
 
     @media screen and (max-width: 500px) {
-      // bottom: 0;
       left: -2px;
       height: 100%;
       width: 101%;
@@ -1546,8 +1541,6 @@
   flex-direction: column;
   width: 746px;
   height: 487px;
-  // max-width: 746px;
-  // max-height: 487px;
   margin: 0 auto;
   margin-top: 61px;
   border-radius: 64.2869px;
@@ -1556,8 +1549,6 @@
   padding: 20px;
 
   @media screen and (max-width: 800px) {
-    // max-width: 573px;
-    // max-height: 375px;
     width: 573px;
     height: 375px;
     margin-top: 23px;
@@ -1573,17 +1564,11 @@
   @media screen and (max-width: 500px) {
     width: 320px;
     height: 209px;
-    // max-width: 320px;
-    // max-height: 209px;
     padding: 8px;
   }
 
   @media screen and (max-width: 350px) {
     width: 100%;
-    // height: 209px;
-    // max-width: 320px;
-    // max-height: 209px;
-    // padding: 8px;
   }
 
   &:before {
@@ -2195,10 +2180,6 @@
   overflow: hidden;
   max-height: 870px;
 
-  // @media screen and (max-width: 1200px) {
-  //   max-height: 750px;
-  // }
-
   @media screen and (max-width: 1000px) {
     margin-top: 40px;
     max-height: 600px;
@@ -2216,17 +2197,14 @@
 
   @media screen and (max-width: 600px) {
     max-height: 770px;
-    // padding-bottom: 10px;
   }
 
   @media screen and (max-width: 455px) {
     max-height: 800px;
-    // padding-bottom: 10px;
   }
 
   @media screen and (max-width: 360px) {
     max-height: 820px;
-    // padding-bottom: 10px;
   }
 
   .swiper {
@@ -2638,7 +2616,6 @@
 
       @media screen and (max-width: 700px) {
         font-size: 15px;
-        // padding: 21px;
       }
 
       @media screen and (max-width: 600px) {
@@ -3581,6 +3558,7 @@
 
     .button {
       margin-top: 32px;
+      width: max-content;
 
       @media screen and (max-width: 1200px) {
         margin-top: 21px;
@@ -3930,8 +3908,6 @@
   overflow: hidden;
   width: 825px;
   height: 482px;
-  // max-width: 825px;
-  // max-height: 482px;
   margin: 0 auto;
   margin-top: 40px;
   position: relative;
@@ -3940,15 +3916,11 @@
     margin-top: 34px;
     width: 710px;
     height: 415px;
-    // max-width: 710px;
-    // max-height: 415px;
     border-radius: 70px;
   }
 
   @media screen and (max-width: 768px) {
     margin-top: 27px;
-    // max-width: 545px;
-    // max-height: 320px;
     width: 545px;
     height: 320px;
     border-radius: 53px;
@@ -3970,6 +3942,16 @@
     width: 100%;
     height: 100%;
     background: rgba(118, 101, 81, 0.5);
+  }
+
+  &__main {
+    height: 100%;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__center {
@@ -5197,6 +5179,11 @@
     &-next {
       right: 0;
     }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -5611,7 +5598,7 @@
       padding: 12px;
     }
 
-    img {
+    svg {
       width: 100%;
       height: 100%;
     }
@@ -5784,6 +5771,11 @@
         )
         /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
     }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -5822,7 +5814,6 @@
     font-family: 'Neumann';
     font-weight: 400;
     font-size: 41.9424px;
-    // line-height: 129.3%;
     background: linear-gradient(180deg, #c7babb 8.14%, #ffffff 57.46%, #ffffff 100.29%), #ffffff;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -6158,7 +6149,6 @@ body.lock {
 
   @media screen and (max-width: 500px) {
     font-size: 20px;
-    // text-align: center;
   }
 }
 
@@ -6239,7 +6229,6 @@ body.lock {
     label {
       font-weight: 300;
       font-size: 20px;
-      // line-height: 24px;
       color: #ffffff;
       cursor: pointer;
       display: flex;
@@ -6299,10 +6288,6 @@ body.lock {
   .order-name {
     margin-top: 16px;
     text-align: center;
-
-    // @media screen and (max-width: 900px) {
-    //   display: none;
-    // }
   }
 
   .order-flex {
@@ -6400,11 +6385,9 @@ body.lock {
     .button {
       margin-top: 17px;
       width: 263px;
-      // padding: 13px 22px 6px 22px;
 
       @media screen and (max-width: 768px) {
         font-size: 14px;
-        // padding: 13px 22px 6px 22px;
       }
 
       @media screen and (max-width: 400px) {
@@ -6685,6 +6668,12 @@ body.lock {
   @media screen and (max-width: 700px) {
     gap: 20px;
   }
+
+  @media screen and (max-width: 400px) {
+    gap: 5px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 }
 
 .mailing-item {
@@ -6868,11 +6857,6 @@ body.lock {
     }
   }
 
-  // @media screen and (max-width: 575px) {
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  // }
-
   &__img {
     display: flex;
     align-items: center;
@@ -6913,6 +6897,10 @@ body.lock {
     .youtube-video__slide {
       display: block;
     }
+
+    &::before {
+      display: none;
+    }
   }
 }
 
@@ -6942,6 +6930,18 @@ body.lock {
 
     @media screen and (max-width: 500px) {
       height: 300px;
+    }
+  }
+}
+
+.popup-description {
+  .popup__content {
+    background: rgba(17, 17, 17, 1);
+    width: 1000px;
+
+    @media screen and (max-width: 1050px) {
+      width: 100%;
+      padding: 18px;
     }
   }
 }

@@ -29,8 +29,6 @@ const swiper2 = new Swiper('.card-swiper2', {
 });
 
 const swiper3 = new Swiper('.reviews-swiper', {
-  // slidesPerView: 2,
-  // spaceBetween: 32,
   navigation: {
     nextEl: '.reviews-swiper-button-next',
     prevEl: '.reviews-swiper-button-prev',
@@ -59,9 +57,6 @@ const swiper3 = new Swiper('.reviews-swiper', {
 
 const swiper4 = new Swiper('.catalog-swiper', {
   loop: true,
-  // autoplay: {
-  //   delay: 5000,
-  // },
   breakpoints: {
     320: {
       slidesPerView: 3,
@@ -80,8 +75,6 @@ const swiper4 = new Swiper('.catalog-swiper', {
       slidesPerView: 5,
     },
   },
-  // effect: 'slide',
-  // speed: 300,
 });
 
 const popupLinks = document.querySelectorAll('.popup-link');
@@ -252,24 +245,6 @@ const mailingPopupChange = () => {
 
 mailingPopupChange();
 
-// const mailingChange = () => {
-//   const mailingButton = document.querySelectorAll('.mailing-item');
-//   mailingButton.forEach((item) => {
-//     item.addEventListener('click', () => {
-//       console.log(item.classList.contains('mailing-item--active'));
-//       // if (item.classList.contains('mailing-item--active')) {
-//       //   console.log('1');
-//       //   item.classList.remove('mailing-item--active');
-//       // }
-//       // if (item !== item.classList.contains('mailing-item--active')) {
-//       //   item.classList.add('mailing-item--active');
-//       // }
-//     });
-//   });
-// };
-
-// mailingChange();
-
 const orderChange = () => {
   const popup = document.querySelectorAll('.popup');
   popup.forEach((item) => {
@@ -296,7 +271,6 @@ const orderChange = () => {
         item1.nextElementSibling.classList.add('order-slide--active');
         orderRightTwo.classList.remove('order-header--active');
         console.log(orderRightTwo.nextElementSibling.classList.add('order-header--active'));
-        // orderRightTwo.nextElementSibling.classList.add('order-header--active');
       });
     });
 
@@ -308,35 +282,6 @@ const orderChange = () => {
       });
     });
   });
-  // const orderChangeOne = document.querySelectorAll('.order-slide--one');
-  // const orderChangeTwo = document.querySelectorAll('.order-slide--two');
-  // const callbackSlideOne = document.querySelectorAll('.callback-slide--one');
-  // const orderRightOne = document.querySelector('.order-header--one');
-  // const orderRightTwo = document.querySelectorAll('.order-header--two');
-
-  // orderChangeOne.forEach((item) => {
-  //   const orderChangeOneButton = item.querySelector('.button');
-  //   orderChangeOneButton.addEventListener('click', () => {
-  //     item.classList.remove('order-slide--active');
-  //     item.nextElementSibling.classList.add('order-slide--active');
-  //   });
-  // });
-
-  // orderChangeTwo.forEach((item) => {
-  //   const orderChangeTwoButton = item.querySelector('.button');
-  //   orderChangeTwoButton.addEventListener('click', () => {
-  //     item.classList.remove('order-slide--active');
-  //     item.nextElementSibling.classList.add('order-slide--active');
-  //   });
-  // });
-
-  // callbackSlideOne.forEach((item) => {
-  //   const callbackChangeOneButton = item.querySelector('.button');
-  //   callbackChangeOneButton.addEventListener('click', () => {
-  //     item.classList.remove('callback-slide--active');
-  //     item.nextElementSibling.classList.add('callback-slide--active');
-  //   });
-  // });
 };
 
 orderChange();
