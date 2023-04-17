@@ -57,6 +57,9 @@ const swiper3 = new Swiper('.reviews-swiper', {
 
 const swiper4 = new Swiper('.catalog-swiper', {
   loop: true,
+  autoplay: {
+    delay: 2000,
+  },
   breakpoints: {
     320: {
       slidesPerView: 3,
@@ -203,18 +206,6 @@ document.addEventListener('keydown', (e) => {
   }
 })();
 
-const presentationVideoPlay = () => {
-  const presentationVideo = document.querySelectorAll('.youtube-video');
-  presentationVideo.forEach((item) => {
-    const presentationVideoButton = item.querySelector('.button-play');
-    presentationVideoButton.addEventListener('click', () => {
-      item.classList.add('youtube-video--hidden');
-    });
-  });
-};
-
-presentationVideoPlay();
-
 const mailingPopupChange = () => {
   const mailingPopup = document.querySelectorAll('.popup');
   mailingPopup.forEach((item) => {
@@ -222,6 +213,10 @@ const mailingPopupChange = () => {
     const mailingPopupButtonEmail = item.querySelector('.mailing-item--email');
     const mailingPopupButton = item.querySelectorAll('.mailing-item');
     const mailingPopupInput = item.querySelector('.order-email');
+    const ctlgForm1 = document.querySelector('.ctlg-form1');
+    const ctlgForm2 = document.querySelector('.ctlg-form2');
+    const bookForm1 = document.querySelector('.book-form1');
+    const bookForm2 = document.querySelector('.book-form2');
     mailingRadio.forEach((item1) => {
       item1.addEventListener('click', (e) => {
         mailingRadio.forEach((item3) => {
@@ -234,10 +229,18 @@ const mailingPopupChange = () => {
       mailingPopupButton.forEach((item2) => {
         item2.addEventListener('click', () => {
           mailingPopupInput.classList.remove('order-email--active');
+          bookForm2.style.display = 'none';
+          bookForm1.style.display = 'flex';
+          ctlgForm2.style.display = 'none';
+          ctlgForm1.style.display = 'flex';
         });
       });
       mailingPopupButtonEmail.addEventListener('click', () => {
         mailingPopupInput.classList.add('order-email--active');
+        bookForm2.style.display = 'flex';
+        bookForm1.style.display = 'none';
+        ctlgForm2.style.display = 'flex';
+        ctlgForm1.style.display = 'none';
       });
     }
   });
@@ -245,43 +248,502 @@ const mailingPopupChange = () => {
 
 mailingPopupChange();
 
-const orderChange = () => {
-  const popup = document.querySelectorAll('.popup');
-  popup.forEach((item) => {
-    const orderChangeOne = item.querySelectorAll('.order-slide--one');
-    const orderChangeTwo = item.querySelectorAll('.order-slide--two');
-    const callbackSlideOne = item.querySelectorAll('.callback-slide--one');
-    const orderRightOne = item.querySelector('.order-header--one');
-    const orderRightTwo = item.querySelector('.order-header--two');
+const validator1 = new Validator({
+  form: document.getElementById('ctlg-form1'),
+  rules: {
+    // email: {
+    //   validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    // },
+    name: {
+      validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    },
+    phone: {
+      validate: (val) => (!val ? 'Ошибочка вышла' : ''),
+    },
+  },
+});
 
-    orderChangeOne.forEach((item1) => {
-      const orderChangeOneButton = item1.querySelector('.button');
-      orderChangeOneButton.addEventListener('click', () => {
-        item1.classList.remove('order-slide--active');
-        item1.nextElementSibling.classList.add('order-slide--active');
-        orderRightOne.classList.remove('order-header--active');
-        orderRightOne.nextElementSibling.classList.add('order-header--active');
-      });
-    });
+validator1.form.onsubmit = (evn) => {
+  evn.preventDefault();
+  const values = validator1.getValues();
+  const errorMessageName = document.querySelector('.input-error1--name');
+  const errorMessagePhone = document.querySelector('.input-error1--phone');
+  // const errorMessageEmail = document.querySelector('.input-error--email');
+  const pages = document.querySelector('.popup-catalog-form-two');
+  if (validator1?.errorMessages?.name) {
+    errorMessageName.innerHTML = validator1?.errorMessages?.name;
+    errorMessageName.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessageName.innerHTML = '';
+    errorMessageName.previousElementSibling.classList.remove('input--error');
+  }
+  if (validator1?.errorMessages?.phone) {
+    errorMessagePhone.innerHTML = validator1?.errorMessages?.phone;
+    errorMessagePhone.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessagePhone.innerHTML = '';
+    errorMessagePhone.previousElementSibling.classList.remove('input--error');
+  }
+  // if (validator?.errorMessages?.email) {
+  //   errorMessageEmail.innerHTML = validator?.errorMessages?.name;
+  // } else {
+  //   errorMessageEmail.innerHTML = '';
+  // }
+  // console.log(values, validator);
+  if (values.name && values.phone) {
+    pages.classList.remove('ctlg-slide--active');
+    pages.nextElementSibling.classList.add('ctlg-slide--active');
+  }
+  // console.log(values.name);
+  // console.log(values.phone);
+  // console.log(values.email);
+};
 
-    orderChangeTwo.forEach((item1) => {
-      const orderChangeTwoButton = item1.querySelector('.button');
-      orderChangeTwoButton.addEventListener('click', () => {
-        item1.classList.remove('order-slide--active');
-        item1.nextElementSibling.classList.add('order-slide--active');
-        orderRightTwo.classList.remove('order-header--active');
-        console.log(orderRightTwo.nextElementSibling.classList.add('order-header--active'));
-      });
-    });
+validator1.form.onreset = (evn) => {
+  const data = validator1.reset();
+  console.log(data);
+};
 
-    callbackSlideOne.forEach((item1) => {
-      const callbackChangeOneButton = item1.querySelector('.button');
-      callbackChangeOneButton.addEventListener('click', () => {
-        item1.classList.remove('callback-slide--active');
-        item1.nextElementSibling.classList.add('callback-slide--active');
-      });
-    });
+const validator2 = new Validator({
+  form: document.getElementById('ctlg-form2'),
+  rules: {
+    email2: {
+      validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    },
+    name2: {
+      validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    },
+    phone2: {
+      validate: (val) => (!val ? 'Ошибочка вышла' : ''),
+    },
+  },
+});
+
+validator2.form.onsubmit = (evn) => {
+  evn.preventDefault();
+  const values = validator2.getValues();
+  const errorMessageName = document.querySelector('.input-error2--name');
+  const errorMessagePhone = document.querySelector('.input-error2--phone');
+  const errorMessageEmail = document.querySelector('.input-error2--email');
+  const pages = document.querySelector('.popup-catalog-form-two');
+  if (validator2?.errorMessages?.name2) {
+    errorMessageName.innerHTML = validator2?.errorMessages?.name2;
+    errorMessageName.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessageName.innerHTML = '';
+    errorMessageName.previousElementSibling.classList.remove('input--error');
+  }
+  if (validator2?.errorMessages?.phone2) {
+    errorMessagePhone.innerHTML = validator2?.errorMessages?.phone2;
+    errorMessagePhone.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessagePhone.innerHTML = '';
+    errorMessagePhone.previousElementSibling.classList.remove('input--error');
+  }
+  if (validator2?.errorMessages?.email2) {
+    errorMessageEmail.innerHTML = validator2?.errorMessages?.email2;
+    errorMessageEmail.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessageEmail.innerHTML = '';
+    errorMessageEmail.previousElementSibling.classList.remove('input--error');
+  }
+  // console.log(values, validator);
+  if (values.name2 && values.phone2 && values.email2) {
+    pages.classList.remove('ctlg-slide--active');
+    pages.nextElementSibling.classList.add('ctlg-slide--active');
+  }
+  // console.log(values.name);
+  // console.log(values.phone);
+  // console.log(values.email);
+};
+
+validator2.form.onreset = (evn) => {
+  const data = validator2.reset();
+  console.log(data);
+};
+
+const validator3 = new Validator({
+  form: document.getElementById('book-form1'),
+  rules: {
+    // email: {
+    //   validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    // },
+    name3: {
+      validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    },
+    phone3: {
+      validate: (val) => (!val ? 'Ошибочка вышла' : ''),
+    },
+  },
+});
+
+validator3.form.onsubmit = (evn) => {
+  evn.preventDefault();
+  const values = validator3.getValues();
+  const errorMessageName = document.querySelector('.input-error3--name');
+  const errorMessagePhone = document.querySelector('.input-error3--phone');
+  // const errorMessageEmail = document.querySelector('.input-error--email');
+  const book = document.querySelector('.popup-order');
+  const orderRightOne = book.querySelector('.order-header--one');
+  const orderRightTwo = book.querySelector('.order-header--two');
+  const pages = document.querySelector('.popup-book-form-two');
+  if (validator3?.errorMessages?.name3) {
+    errorMessageName.innerHTML = validator3?.errorMessages?.name3;
+    errorMessageName.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessageName.innerHTML = '';
+    errorMessageName.previousElementSibling.classList.remove('input--error');
+  }
+  if (validator3?.errorMessages?.phone3) {
+    errorMessagePhone.innerHTML = validator3?.errorMessages?.phone3;
+    errorMessagePhone.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessagePhone.innerHTML = '';
+    errorMessagePhone.previousElementSibling.classList.remove('input--error');
+  }
+  // if (validator?.errorMessages?.email) {
+  //   errorMessageEmail.innerHTML = validator?.errorMessages?.name;
+  // } else {
+  //   errorMessageEmail.innerHTML = '';
+  // }
+  // console.log(values, validator);
+  if (values.name3 && values.phone3) {
+    pages.classList.remove('book-slide--active');
+    pages.nextElementSibling.classList.add('book-slide--active');
+    orderRightTwo.classList.remove('order-header--active');
+    orderRightTwo.nextElementSibling.classList.add('order-header--active');
+  }
+  // console.log(values.name);
+  // console.log(values.phone);
+  // console.log(values.email);
+};
+
+validator3.form.onreset = (evn) => {
+  const data = validator3.reset();
+  console.log(data);
+};
+
+const validator4 = new Validator({
+  form: document.getElementById('book-form2'),
+  rules: {
+    email4: {
+      validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    },
+    name4: {
+      validate: (val) => (val ? '' : 'Ошибочка вышла'),
+    },
+    phone4: {
+      validate: (val) => (!val ? 'Ошибочка вышла' : ''),
+    },
+  },
+});
+
+validator4.form.onsubmit = (evn) => {
+  evn.preventDefault();
+  const values = validator4.getValues();
+  const errorMessageName = document.querySelector('.input-error4--name');
+  const errorMessagePhone = document.querySelector('.input-error4--phone');
+  const errorMessageEmail = document.querySelector('.input-error4--email');
+  const book = document.querySelector('.popup-order');
+  const orderRightOne = book.querySelector('.order-header--one');
+  const orderRightTwo = book.querySelector('.order-header--two');
+  const pages = document.querySelector('.popup-book-form-two');
+  if (validator4?.errorMessages?.name4) {
+    errorMessageName.innerHTML = validator4?.errorMessages?.name4;
+    errorMessageName.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessageName.innerHTML = '';
+    errorMessageName.previousElementSibling.classList.remove('input--error');
+  }
+  if (validator4?.errorMessages?.phone4) {
+    errorMessagePhone.innerHTML = validator4?.errorMessages?.phone4;
+    errorMessagePhone.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessagePhone.innerHTML = '';
+    errorMessagePhone.previousElementSibling.classList.remove('input--error');
+  }
+  if (validator4?.errorMessages?.email4) {
+    errorMessageEmail.innerHTML = validator4?.errorMessages?.email4;
+    errorMessageEmail.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessageEmail.innerHTML = '';
+    errorMessageEmail.previousElementSibling.classList.remove('input--error');
+  }
+  // console.log(values, validator);
+  if (values.name4 && values.phone4 && values.email4) {
+    pages.classList.remove('book-slide--active');
+    pages.nextElementSibling.classList.add('book-slide--active');
+    orderRightTwo.classList.remove('order-header--active');
+    orderRightTwo.nextElementSibling.classList.add('order-header--active');
+  }
+  // console.log(values.name);
+  // console.log(values.phone);
+  // console.log(values.email);
+};
+
+validator4.form.onreset = (evn) => {
+  const data = validator4.reset();
+  console.log(data);
+};
+
+// const orderChange = () => {
+//   const popup = document.querySelectorAll('.popup');
+//   popup.forEach((item) => {
+//     const orderChangeOne = item.querySelectorAll('.order-slide--one');
+//     const orderChangeTwo = item.querySelectorAll('.order-slide--two');
+//     const callbackSlideOne = item.querySelectorAll('.callback-slide--one');
+//     const orderRightOne = item.querySelector('.order-header--one');
+//     const orderRightTwo = item.querySelector('.order-header--two');
+
+//     orderChangeOne.forEach((item1) => {
+//       const orderChangeOneButton = item1.querySelector('.button');
+//       orderChangeOneButton.addEventListener('click', () => {
+//         item1.classList.remove('order-slide--active');
+//         item1.nextElementSibling.classList.add('order-slide--active');
+//         orderRightOne.classList.remove('order-header--active');
+//         orderRightOne.nextElementSibling.classList.add('order-header--active');
+//       });
+//     });
+
+//     // orderChangeTwo.forEach((item1) => {
+//     //   const orderChangeTwoButton = item1.querySelector('.button');
+//     //   orderChangeTwoButton.addEventListener('click', () => {
+//     //     item1.classList.remove('order-slide--active');
+//     //     item1.nextElementSibling.classList.add('order-slide--active');
+//     //     orderRightTwo.classList.remove('order-header--active');
+//     //     console.log(orderRightTwo.nextElementSibling.classList.add('order-header--active'));
+//     //   });
+//     // });
+
+//     orderChangeTwo.forEach((item1) => {
+//       const orderChangeTwoButton = item1.querySelector('.button');
+//       const orderInputItem = item1.querySelectorAll('.input-item');
+//       orderChangeTwoButton.addEventListener('click', () => {
+//         // item1.classList.remove('order-slide--active');
+//         // item1.nextElementSibling.classList.add('order-slide--active');
+//         // item1.classList.remove('order-slide--active');
+//         // orderInputItem.forEach((item2) => {
+//         //   const orderInput = item2.querySelector('input');
+//         //   console.log(orderEmail);
+//         //   if (orderInput.checkValidity()) {
+//         //     counter += 1;
+//         //   }
+//         // });
+//         // if (counter === 3) {
+//         //   item1.classList.remove('order-slide--active');
+//         //   item1.nextElementSibling.classList.add('order-slide--active');
+//         // }
+//         // item1.nextElementSibling.classList.add('order-slide--active');
+//         // orderRightTwo.classList.remove('order-header--active');
+//         // orderRightTwo.nextElementSibling.classList.add('order-header--active');
+//       });
+//     });
+
+//     callbackSlideOne.forEach((item1) => {
+//       const callbackChangeOneButton = item1.querySelector('.button');
+//       callbackChangeOneButton.addEventListener('click', () => {
+//         item1.classList.remove('callback-slide--active');
+//         item1.nextElementSibling.classList.add('callback-slide--active');
+//       });
+//     });
+//   });
+// };
+
+// orderChange();
+
+const ctlgChange = () => {
+  const ctgl = document.querySelector('.popup-catalog');
+  const ctglChangeOne = ctgl.querySelector('.ctlg-slide--one');
+  const ctglChangeOneButton = ctglChangeOne.querySelector('.button');
+  const ctglChangeTwo = ctgl.querySelector('.ctlg-slide--two');
+  // const callbackSlideOne = ctgl.querySelectorAll('.callback-slide--one');
+  // const orderRightOne = ctgl.querySelector('.order-header--one');
+  // const orderRightTwo = ctgl.querySelector('.order-header--two');
+  ctglChangeOneButton.addEventListener('click', () => {
+    ctglChangeOne.classList.remove('ctlg-slide--active');
+    ctglChangeTwo.classList.add('ctlg-slide--active');
   });
+
+  // ctglChangeOne.forEach((item1) => {
+  //   const orderChangeOneButton = item1.querySelector('.button');
+  //   orderChangeOneButton.addEventListener('click', () => {
+  //     item1.classList.remove('order-slide--active');
+  //     item1.nextElementSibling.classList.add('order-slide--active');
+  //     orderRightOne.classList.remove('order-header--active');
+  //     orderRightOne.nextElementSibling.classList.add('order-header--active');
+  //   });
+  // });
+};
+
+ctlgChange();
+
+const callbackChange = () => {
+  const callback = document.querySelector('.popup-callback');
+  const callbackChangeOne = callback.querySelector('.callback-slide--one');
+  const callbackChangeOneButton = callback.querySelector('.button');
+  const callbackChangeTwo = callback.querySelector('.callback-slide--two');
+  const callbackChangeTime = callback.querySelector('.callback-tabs__button--time');
+  const callbackChangeNow = callback.querySelector('.callback-tabs__button--now');
+  const callbackFormOne = callback.querySelector('.callback-form1');
+  const callbackFormTwo = callback.querySelector('.callback-form2');
+  // const callbackSlideOne = ctgl.querySelectorAll('.callback-slide--one');
+  // const orderRightOne = ctgl.querySelector('.order-header--one');
+  // const orderRightTwo = ctgl.querySelector('.order-header--two');
+  // callbackChangeOneButton.addEventListener('click', () => {
+  //   callbackChangeOne.classList.remove('callback-slide--active');
+  //   callbackChangeTwo.classList.add('callback-slide--active');
+  // });
+
+  callbackChangeTime.addEventListener('click', () => {
+    callbackFormOne.style.display = 'none';
+    callbackFormTwo.style.display = 'block';
+  });
+
+  callbackChangeNow.addEventListener('click', () => {
+    callbackFormOne.style.display = 'block';
+    callbackFormTwo.style.display = 'none';
+  });
+
+  // ctglChangeOne.forEach((item1) => {
+  //   const orderChangeOneButton = item1.querySelector('.button');
+  //   orderChangeOneButton.addEventListener('click', () => {
+  //     item1.classList.remove('order-slide--active');
+  //     item1.nextElementSibling.classList.add('order-slide--active');
+  //     orderRightOne.classList.remove('order-header--active');
+  //     orderRightOne.nextElementSibling.classList.add('order-header--active');
+  //   });
+  // });
+};
+
+callbackChange();
+
+const validator5 = new Validator({
+  form: document.getElementById('callback-form1'),
+  rules: {
+    phone5: {
+      validate: (val) => (!val ? 'Ошибочка вышла' : ''),
+    },
+  },
+});
+
+validator5.form.onsubmit = (evn) => {
+  evn.preventDefault();
+  const values = validator5.getValues();
+  const errorMessagePhone = document.querySelector('.input-error5--phone');
+  const callback = document.querySelector('.popup-callback');
+  const callbackChangeOne = callback.querySelector('.callback-slide--one');
+  const callbackChangeOneButton = callback.querySelector('.button');
+  const callbackChangeTwo = callback.querySelector('.callback-slide--two');
+
+  // const pages = document.querySelector('.popup-book-form-two');
+  if (validator5?.errorMessages?.phone5) {
+    errorMessagePhone.innerHTML = validator5?.errorMessages?.phone5;
+    errorMessagePhone.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessagePhone.innerHTML = '';
+    errorMessagePhone.previousElementSibling.classList.remove('input--error');
+  }
+  // console.log(values, validator);
+  if (values.phone5) {
+    callbackChangeOne.classList.remove('callback-slide--active');
+    callbackChangeOne.nextElementSibling.classList.add('callback-slide--active');
+    // pages.classList.remove('book-slide--active');
+    // pages.nextElementSibling.classList.add('book-slide--active');
+    // orderRightTwo.classList.remove('order-header--active');
+    // orderRightTwo.nextElementSibling.classList.add('order-header--active');
+  }
+  // console.log(values.name);
+  // console.log(values.phone);
+  // console.log(values.email);
+};
+
+validator5.form.onreset = (evn) => {
+  const data = validator5.reset();
+  console.log(data);
+};
+
+const validator6 = new Validator({
+  form: document.getElementById('callback-form2'),
+  rules: {
+    phone6: {
+      validate: (val) => (!val ? 'Ошибочка вышла' : ''),
+    },
+    info6: {
+      validate: (val) => (!val ? 'Ошибочка вышла' : ''),
+    },
+  },
+});
+
+validator6.form.onsubmit = (evn) => {
+  evn.preventDefault();
+  const values = validator6.getValues();
+  const errorMessagePhone = document.querySelector('.input-error6--phone');
+  const errorMessageInfo = document.querySelector('.input-error6--info');
+  const callback = document.querySelector('.popup-callback');
+  const callbackChangeOne = callback.querySelector('.callback-slide--one');
+  const callbackChangeOneButton = callback.querySelector('.button');
+  const callbackChangeTwo = callback.querySelector('.callback-slide--two');
+
+  // const pages = document.querySelector('.popup-book-form-two');
+  if (validator6?.errorMessages?.phone6) {
+    errorMessagePhone.innerHTML = validator6?.errorMessages?.phone6;
+    errorMessagePhone.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessagePhone.innerHTML = '';
+    errorMessagePhone.previousElementSibling.classList.remove('input--error');
+  }
+  if (validator6?.errorMessages?.info6) {
+    errorMessageInfo.innerHTML = validator6?.errorMessages?.info6;
+    errorMessageInfo.previousElementSibling.classList.add('input--error');
+  } else {
+    errorMessageInfo.innerHTML = '';
+    errorMessageInfo.previousElementSibling.classList.remove('input--error');
+  }
+  // console.log(values, validator);
+  if (values.phone6 && values.info6) {
+    callbackChangeOne.classList.remove('callback-slide--active');
+    callbackChangeOne.nextElementSibling.classList.add('callback-slide--active');
+    // pages.classList.remove('book-slide--active');
+    // pages.nextElementSibling.classList.add('book-slide--active');
+    // orderRightTwo.classList.remove('order-header--active');
+    // orderRightTwo.nextElementSibling.classList.add('order-header--active');
+  }
+  // console.log(values.name);
+  // console.log(values.phone);
+  // console.log(values.email);
+};
+
+validator5.form.onreset = (evn) => {
+  const data = validator5.reset();
+  console.log(data);
+};
+
+const orderChange = () => {
+  const book = document.querySelector('.popup-order');
+  const bookChangeOne = book.querySelector('.book-slide--one');
+  const bookChangeOneButton = bookChangeOne.querySelector('.button');
+  const bookChangeTwo = book.querySelector('.book-slide--two');
+  const orderRightOne = book.querySelector('.order-header--one');
+  const orderRightTwo = book.querySelector('.order-header--two');
+  // const callbackSlideOne = ctgl.querySelectorAll('.callback-slide--one');
+  // const orderRightOne = ctgl.querySelector('.order-header--one');
+  // const orderRightTwo = ctgl.querySelector('.order-header--two');
+  bookChangeOneButton.addEventListener('click', () => {
+    bookChangeOne.classList.remove('book-slide--active');
+    bookChangeTwo.classList.add('book-slide--active');
+    orderRightOne.classList.remove('order-header--active');
+    orderRightOne.nextElementSibling.classList.add('order-header--active');
+  });
+
+  // ctglChangeOne.forEach((item1) => {
+  //   const orderChangeOneButton = item1.querySelector('.button');
+  //   orderChangeOneButton.addEventListener('click', () => {
+  //     item1.classList.remove('order-slide--active');
+  //     item1.nextElementSibling.classList.add('order-slide--active');
+  //     orderRightOne.classList.remove('order-header--active');
+  //     orderRightOne.nextElementSibling.classList.add('order-header--active');
+  //   });
+  // });
 };
 
 orderChange();
