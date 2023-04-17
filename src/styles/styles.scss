@@ -6012,21 +6012,7 @@ body.lock {
   line-height: 30px;
   color: #ff4545;
   margin-left: 23px;
-  // display: none;
 }
-
-// .input-item {
-//   &--error {
-//     .input {
-//       border: 3px solid rgba(255, 69, 69, 0.45);
-//     }
-
-//     .input-text {
-//       display: block;
-//       margin-left: 23px;
-//     }
-//   }
-// }
 
 .input {
   border: none;
@@ -6206,14 +6192,6 @@ body.lock {
   }
 }
 
-// .order-email {
-//   display: none;
-
-//   &--active {
-//     display: block;
-//   }
-// }
-
 .steps {
   background: linear-gradient(131.31deg, #1b1b1b 26.14%, #070707 68.57%, #000000 88.19%);
   box-shadow: 0px 14px 43px rgba(163, 169, 183, 0.1);
@@ -6372,17 +6350,14 @@ body.lock {
 }
 
 .order-slide {
-  // display: none;
   &__flex {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 14px;
-    // margin-top: 15px;
     margin-bottom: 28px;
 
     @media screen and (max-width: 700px) {
-      // margin-top: 10px;
       margin-bottom: 20px;
       gap: 8px;
     }
@@ -6445,7 +6420,6 @@ body.lock {
     margin-top: 17px;
 
     .button {
-      // margin-top: 17px;
       width: 263px;
 
       @media screen and (max-width: 768px) {
@@ -6524,7 +6498,6 @@ body.lock {
     margin-top: 17px;
 
     .button {
-      // margin-top: 17px;
       width: 263px;
 
       @media screen and (max-width: 768px) {
@@ -7040,10 +7013,6 @@ body.lock {
     }
   }
 }
-
-// #form1 {
-//   display: none;
-// }
 
 .ctlg-form2 {
   display: none;

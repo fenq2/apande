@@ -251,9 +251,6 @@ mailingPopupChange();
 const validator1 = new Validator({
   form: document.getElementById('ctlg-form1'),
   rules: {
-    // email: {
-    //   validate: (val) => (val ? '' : 'Ошибочка вышла'),
-    // },
     name: {
       validate: (val) => (val ? '' : 'Ошибочка вышла'),
     },
@@ -268,7 +265,6 @@ validator1.form.onsubmit = (evn) => {
   const values = validator1.getValues();
   const errorMessageName = document.querySelector('.input-error1--name');
   const errorMessagePhone = document.querySelector('.input-error1--phone');
-  // const errorMessageEmail = document.querySelector('.input-error--email');
   const pages = document.querySelector('.popup-catalog-form-two');
   if (validator1?.errorMessages?.name) {
     errorMessageName.innerHTML = validator1?.errorMessages?.name;
@@ -284,19 +280,10 @@ validator1.form.onsubmit = (evn) => {
     errorMessagePhone.innerHTML = '';
     errorMessagePhone.previousElementSibling.classList.remove('input--error');
   }
-  // if (validator?.errorMessages?.email) {
-  //   errorMessageEmail.innerHTML = validator?.errorMessages?.name;
-  // } else {
-  //   errorMessageEmail.innerHTML = '';
-  // }
-  // console.log(values, validator);
   if (values.name && values.phone) {
     pages.classList.remove('ctlg-slide--active');
     pages.nextElementSibling.classList.add('ctlg-slide--active');
   }
-  // console.log(values.name);
-  // console.log(values.phone);
-  // console.log(values.email);
 };
 
 validator1.form.onreset = (evn) => {
@@ -347,14 +334,10 @@ validator2.form.onsubmit = (evn) => {
     errorMessageEmail.innerHTML = '';
     errorMessageEmail.previousElementSibling.classList.remove('input--error');
   }
-  // console.log(values, validator);
   if (values.name2 && values.phone2 && values.email2) {
     pages.classList.remove('ctlg-slide--active');
     pages.nextElementSibling.classList.add('ctlg-slide--active');
   }
-  // console.log(values.name);
-  // console.log(values.phone);
-  // console.log(values.email);
 };
 
 validator2.form.onreset = (evn) => {
@@ -365,9 +348,6 @@ validator2.form.onreset = (evn) => {
 const validator3 = new Validator({
   form: document.getElementById('book-form1'),
   rules: {
-    // email: {
-    //   validate: (val) => (val ? '' : 'Ошибочка вышла'),
-    // },
     name3: {
       validate: (val) => (val ? '' : 'Ошибочка вышла'),
     },
@@ -382,7 +362,6 @@ validator3.form.onsubmit = (evn) => {
   const values = validator3.getValues();
   const errorMessageName = document.querySelector('.input-error3--name');
   const errorMessagePhone = document.querySelector('.input-error3--phone');
-  // const errorMessageEmail = document.querySelector('.input-error--email');
   const book = document.querySelector('.popup-order');
   const orderRightOne = book.querySelector('.order-header--one');
   const orderRightTwo = book.querySelector('.order-header--two');
@@ -401,21 +380,12 @@ validator3.form.onsubmit = (evn) => {
     errorMessagePhone.innerHTML = '';
     errorMessagePhone.previousElementSibling.classList.remove('input--error');
   }
-  // if (validator?.errorMessages?.email) {
-  //   errorMessageEmail.innerHTML = validator?.errorMessages?.name;
-  // } else {
-  //   errorMessageEmail.innerHTML = '';
-  // }
-  // console.log(values, validator);
   if (values.name3 && values.phone3) {
     pages.classList.remove('book-slide--active');
     pages.nextElementSibling.classList.add('book-slide--active');
     orderRightTwo.classList.remove('order-header--active');
     orderRightTwo.nextElementSibling.classList.add('order-header--active');
   }
-  // console.log(values.name);
-  // console.log(values.phone);
-  // console.log(values.email);
 };
 
 validator3.form.onreset = (evn) => {
@@ -469,16 +439,12 @@ validator4.form.onsubmit = (evn) => {
     errorMessageEmail.innerHTML = '';
     errorMessageEmail.previousElementSibling.classList.remove('input--error');
   }
-  // console.log(values, validator);
   if (values.name4 && values.phone4 && values.email4) {
     pages.classList.remove('book-slide--active');
     pages.nextElementSibling.classList.add('book-slide--active');
     orderRightTwo.classList.remove('order-header--active');
     orderRightTwo.nextElementSibling.classList.add('order-header--active');
   }
-  // console.log(values.name);
-  // console.log(values.phone);
-  // console.log(values.email);
 };
 
 validator4.form.onreset = (evn) => {
@@ -486,93 +452,15 @@ validator4.form.onreset = (evn) => {
   console.log(data);
 };
 
-// const orderChange = () => {
-//   const popup = document.querySelectorAll('.popup');
-//   popup.forEach((item) => {
-//     const orderChangeOne = item.querySelectorAll('.order-slide--one');
-//     const orderChangeTwo = item.querySelectorAll('.order-slide--two');
-//     const callbackSlideOne = item.querySelectorAll('.callback-slide--one');
-//     const orderRightOne = item.querySelector('.order-header--one');
-//     const orderRightTwo = item.querySelector('.order-header--two');
-
-//     orderChangeOne.forEach((item1) => {
-//       const orderChangeOneButton = item1.querySelector('.button');
-//       orderChangeOneButton.addEventListener('click', () => {
-//         item1.classList.remove('order-slide--active');
-//         item1.nextElementSibling.classList.add('order-slide--active');
-//         orderRightOne.classList.remove('order-header--active');
-//         orderRightOne.nextElementSibling.classList.add('order-header--active');
-//       });
-//     });
-
-//     // orderChangeTwo.forEach((item1) => {
-//     //   const orderChangeTwoButton = item1.querySelector('.button');
-//     //   orderChangeTwoButton.addEventListener('click', () => {
-//     //     item1.classList.remove('order-slide--active');
-//     //     item1.nextElementSibling.classList.add('order-slide--active');
-//     //     orderRightTwo.classList.remove('order-header--active');
-//     //     console.log(orderRightTwo.nextElementSibling.classList.add('order-header--active'));
-//     //   });
-//     // });
-
-//     orderChangeTwo.forEach((item1) => {
-//       const orderChangeTwoButton = item1.querySelector('.button');
-//       const orderInputItem = item1.querySelectorAll('.input-item');
-//       orderChangeTwoButton.addEventListener('click', () => {
-//         // item1.classList.remove('order-slide--active');
-//         // item1.nextElementSibling.classList.add('order-slide--active');
-//         // item1.classList.remove('order-slide--active');
-//         // orderInputItem.forEach((item2) => {
-//         //   const orderInput = item2.querySelector('input');
-//         //   console.log(orderEmail);
-//         //   if (orderInput.checkValidity()) {
-//         //     counter += 1;
-//         //   }
-//         // });
-//         // if (counter === 3) {
-//         //   item1.classList.remove('order-slide--active');
-//         //   item1.nextElementSibling.classList.add('order-slide--active');
-//         // }
-//         // item1.nextElementSibling.classList.add('order-slide--active');
-//         // orderRightTwo.classList.remove('order-header--active');
-//         // orderRightTwo.nextElementSibling.classList.add('order-header--active');
-//       });
-//     });
-
-//     callbackSlideOne.forEach((item1) => {
-//       const callbackChangeOneButton = item1.querySelector('.button');
-//       callbackChangeOneButton.addEventListener('click', () => {
-//         item1.classList.remove('callback-slide--active');
-//         item1.nextElementSibling.classList.add('callback-slide--active');
-//       });
-//     });
-//   });
-// };
-
-// orderChange();
-
 const ctlgChange = () => {
   const ctgl = document.querySelector('.popup-catalog');
   const ctglChangeOne = ctgl.querySelector('.ctlg-slide--one');
   const ctglChangeOneButton = ctglChangeOne.querySelector('.button');
   const ctglChangeTwo = ctgl.querySelector('.ctlg-slide--two');
-  // const callbackSlideOne = ctgl.querySelectorAll('.callback-slide--one');
-  // const orderRightOne = ctgl.querySelector('.order-header--one');
-  // const orderRightTwo = ctgl.querySelector('.order-header--two');
   ctglChangeOneButton.addEventListener('click', () => {
     ctglChangeOne.classList.remove('ctlg-slide--active');
     ctglChangeTwo.classList.add('ctlg-slide--active');
   });
-
-  // ctglChangeOne.forEach((item1) => {
-  //   const orderChangeOneButton = item1.querySelector('.button');
-  //   orderChangeOneButton.addEventListener('click', () => {
-  //     item1.classList.remove('order-slide--active');
-  //     item1.nextElementSibling.classList.add('order-slide--active');
-  //     orderRightOne.classList.remove('order-header--active');
-  //     orderRightOne.nextElementSibling.classList.add('order-header--active');
-  //   });
-  // });
 };
 
 ctlgChange();
@@ -586,13 +474,6 @@ const callbackChange = () => {
   const callbackChangeNow = callback.querySelector('.callback-tabs__button--now');
   const callbackFormOne = callback.querySelector('.callback-form1');
   const callbackFormTwo = callback.querySelector('.callback-form2');
-  // const callbackSlideOne = ctgl.querySelectorAll('.callback-slide--one');
-  // const orderRightOne = ctgl.querySelector('.order-header--one');
-  // const orderRightTwo = ctgl.querySelector('.order-header--two');
-  // callbackChangeOneButton.addEventListener('click', () => {
-  //   callbackChangeOne.classList.remove('callback-slide--active');
-  //   callbackChangeTwo.classList.add('callback-slide--active');
-  // });
 
   callbackChangeTime.addEventListener('click', () => {
     callbackFormOne.style.display = 'none';
@@ -603,16 +484,6 @@ const callbackChange = () => {
     callbackFormOne.style.display = 'block';
     callbackFormTwo.style.display = 'none';
   });
-
-  // ctglChangeOne.forEach((item1) => {
-  //   const orderChangeOneButton = item1.querySelector('.button');
-  //   orderChangeOneButton.addEventListener('click', () => {
-  //     item1.classList.remove('order-slide--active');
-  //     item1.nextElementSibling.classList.add('order-slide--active');
-  //     orderRightOne.classList.remove('order-header--active');
-  //     orderRightOne.nextElementSibling.classList.add('order-header--active');
-  //   });
-  // });
 };
 
 callbackChange();
@@ -635,7 +506,6 @@ validator5.form.onsubmit = (evn) => {
   const callbackChangeOneButton = callback.querySelector('.button');
   const callbackChangeTwo = callback.querySelector('.callback-slide--two');
 
-  // const pages = document.querySelector('.popup-book-form-two');
   if (validator5?.errorMessages?.phone5) {
     errorMessagePhone.innerHTML = validator5?.errorMessages?.phone5;
     errorMessagePhone.previousElementSibling.classList.add('input--error');
@@ -643,18 +513,10 @@ validator5.form.onsubmit = (evn) => {
     errorMessagePhone.innerHTML = '';
     errorMessagePhone.previousElementSibling.classList.remove('input--error');
   }
-  // console.log(values, validator);
   if (values.phone5) {
     callbackChangeOne.classList.remove('callback-slide--active');
     callbackChangeOne.nextElementSibling.classList.add('callback-slide--active');
-    // pages.classList.remove('book-slide--active');
-    // pages.nextElementSibling.classList.add('book-slide--active');
-    // orderRightTwo.classList.remove('order-header--active');
-    // orderRightTwo.nextElementSibling.classList.add('order-header--active');
   }
-  // console.log(values.name);
-  // console.log(values.phone);
-  // console.log(values.email);
 };
 
 validator5.form.onreset = (evn) => {
@@ -684,7 +546,6 @@ validator6.form.onsubmit = (evn) => {
   const callbackChangeOneButton = callback.querySelector('.button');
   const callbackChangeTwo = callback.querySelector('.callback-slide--two');
 
-  // const pages = document.querySelector('.popup-book-form-two');
   if (validator6?.errorMessages?.phone6) {
     errorMessagePhone.innerHTML = validator6?.errorMessages?.phone6;
     errorMessagePhone.previousElementSibling.classList.add('input--error');
@@ -699,18 +560,10 @@ validator6.form.onsubmit = (evn) => {
     errorMessageInfo.innerHTML = '';
     errorMessageInfo.previousElementSibling.classList.remove('input--error');
   }
-  // console.log(values, validator);
   if (values.phone6 && values.info6) {
     callbackChangeOne.classList.remove('callback-slide--active');
     callbackChangeOne.nextElementSibling.classList.add('callback-slide--active');
-    // pages.classList.remove('book-slide--active');
-    // pages.nextElementSibling.classList.add('book-slide--active');
-    // orderRightTwo.classList.remove('order-header--active');
-    // orderRightTwo.nextElementSibling.classList.add('order-header--active');
   }
-  // console.log(values.name);
-  // console.log(values.phone);
-  // console.log(values.email);
 };
 
 validator5.form.onreset = (evn) => {
@@ -725,25 +578,12 @@ const orderChange = () => {
   const bookChangeTwo = book.querySelector('.book-slide--two');
   const orderRightOne = book.querySelector('.order-header--one');
   const orderRightTwo = book.querySelector('.order-header--two');
-  // const callbackSlideOne = ctgl.querySelectorAll('.callback-slide--one');
-  // const orderRightOne = ctgl.querySelector('.order-header--one');
-  // const orderRightTwo = ctgl.querySelector('.order-header--two');
   bookChangeOneButton.addEventListener('click', () => {
     bookChangeOne.classList.remove('book-slide--active');
     bookChangeTwo.classList.add('book-slide--active');
     orderRightOne.classList.remove('order-header--active');
     orderRightOne.nextElementSibling.classList.add('order-header--active');
   });
-
-  // ctglChangeOne.forEach((item1) => {
-  //   const orderChangeOneButton = item1.querySelector('.button');
-  //   orderChangeOneButton.addEventListener('click', () => {
-  //     item1.classList.remove('order-slide--active');
-  //     item1.nextElementSibling.classList.add('order-slide--active');
-  //     orderRightOne.classList.remove('order-header--active');
-  //     orderRightOne.nextElementSibling.classList.add('order-header--active');
-  //   });
-  // });
 };
 
 orderChange();
