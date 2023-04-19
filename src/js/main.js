@@ -57,10 +57,17 @@ const swiper3 = new Swiper('.reviews-swiper', {
 
 const swiper4 = new Swiper('.catalog-swiper', {
   loop: true,
-  speed: 2000,
+  // speed: 2000,
+  effect: 'coverflow',
+
+  coverflowEffect: {
+    rotate: 0,
+    slideShadows: false,
+    modifier: 1,
+    depth: 30,
+  },
   autoplay: {
-    delay: 1,
-    disableOnInteraction: false,
+    delay: 3000,
   },
   breakpoints: {
     320: {
@@ -647,7 +654,7 @@ const time = 10000;
 const step = 1;
 
 function outNum(num, elem) {
-  let e = document.querySelector('#out');
+  let e = document.querySelector(elem);
   let n = 0;
   let t = Math.round(time / (num / step));
   let interval = setInterval(() => {
@@ -659,7 +666,10 @@ function outNum(num, elem) {
   }, t);
 }
 
-outNum(100, '#out');
+outNum(2005, '.number');
+outNum(50, '.number1');
+outNum(1500, '.number2');
+outNum(100, '.number3');
 
 // var number = document.querySelector('.number'),
 //   numberTop = number.getBoundingClientRect().top,
