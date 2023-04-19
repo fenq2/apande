@@ -6706,6 +6706,10 @@ body.lock {
     color: #f2f2f2;
     cursor: pointer;
 
+    @media screen and (max-width: 340px) {
+      font-size: 10px;
+    }
+
     &:first-child {
       border-radius: 6px 0px 0px 6px;
     }
@@ -7088,6 +7092,12 @@ body.lock {
 
 .book-form2 {
   display: none;
+}
+
+.callback-form1 {
+  .input {
+    text-align: center;
+  }
 }
 
 .callback-form2 {
