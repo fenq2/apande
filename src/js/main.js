@@ -643,74 +643,92 @@ const minPopup = () => {
 
 minPopup();
 
-var number = document.querySelector('.number'),
-  numberTop = number.getBoundingClientRect().top,
-  start = +number.innerHTML,
-  end = +number.dataset.max;
+const time = 10000;
+const step = 1;
 
-window.addEventListener('scroll', function onScroll() {
-  if (window.pageYOffset > numberTop - window.innerHeight / 2) {
-    this.removeEventListener('scroll', onScroll);
-    var interval = setInterval(function () {
-      number.innerHTML = ++start;
-      if (start == end) {
-        clearInterval(interval);
-      }
-    }, 5);
-  }
-});
-var number1 = document.querySelector('.number1'),
-  number1Top = number1.getBoundingClientRect().top,
-  start1 = +number1.innerHTML,
-  end1 = +number1.dataset.max;
+function outNum(num, elem) {
+  let e = document.querySelector('#out');
+  let n = 0;
+  let t = Math.round(time / (num / step));
+  let interval = setInterval(() => {
+    n = n + step;
+    if (n == num) {
+      clearInterval(interval);
+    }
+    e.innerHTML = n;
+  }, t);
+}
 
-console.log(start1);
+outNum(100, '#out');
 
-window.addEventListener('scroll', function onScroll() {
-  if (window.pageYOffset > number1Top - window.innerHeight / 2) {
-    this.removeEventListener('scroll', onScroll);
-    var interval1 = setInterval(function () {
-      number1.innerHTML = ++start1;
-      if (start1 == end1) {
-        clearInterval(interval1);
-      }
-    }, 5);
-  }
-});
+// var number = document.querySelector('.number'),
+//   numberTop = number.getBoundingClientRect().top,
+//   start = +number.innerHTML,
+//   end = +number.dataset.max;
 
-var number2 = document.querySelector('.number2'),
-  number2Top = number2.getBoundingClientRect().top,
-  start2 = +number2.innerHTML,
-  end2 = +number2.dataset.max;
+// window.addEventListener('scroll', function onScroll() {
+//   if (window.pageYOffset > numberTop - window.innerHeight / 2) {
+//     this.removeEventListener('scroll', onScroll);
+//     var interval = setInterval(function () {
+//       number.innerHTML = ++start;
+//       if (start == end) {
+//         clearInterval(interval);
+//       }
+//     }, 5);
+//   }
+// });
+// var number1 = document.querySelector('.number1'),
+//   number1Top = number1.getBoundingClientRect().top,
+//   start1 = +number1.innerHTML,
+//   end1 = +number1.dataset.max;
 
-window.addEventListener('scroll', function onScroll() {
-  if (window.pageYOffset > number2Top - window.innerHeight / 2) {
-    this.removeEventListener('scroll', onScroll);
-    var interval2 = setInterval(function () {
-      number2.innerHTML = ++start2;
-      if (start2 == end2) {
-        clearInterval(interval2);
-      }
-    }, 5);
-  }
-});
+// console.log(start1);
 
-var number3 = document.querySelector('.number3'),
-  number3Top = number3.getBoundingClientRect().top,
-  start3 = +number3.innerHTML,
-  end3 = +number3.dataset.max;
+// window.addEventListener('scroll', function onScroll() {
+//   if (window.pageYOffset > number1Top - window.innerHeight / 2) {
+//     this.removeEventListener('scroll', onScroll);
+//     var interval1 = setInterval(function () {
+//       number1.innerHTML = ++start1;
+//       if (start1 == end1) {
+//         clearInterval(interval1);
+//       }
+//     }, 5);
+//   }
+// });
 
-window.addEventListener('scroll', function onScroll() {
-  if (window.pageYOffset > number3Top - window.innerHeight / 2) {
-    this.removeEventListener('scroll', onScroll);
-    var interval3 = setInterval(function () {
-      number3.innerHTML = ++start3;
-      if (start3 == end3) {
-        clearInterval(interval3);
-      }
-    }, 5);
-  }
-});
+// var number2 = document.querySelector('.number2'),
+//   number2Top = number2.getBoundingClientRect().top,
+//   start2 = +number2.innerHTML,
+//   end2 = +number2.dataset.max;
+
+// window.addEventListener('scroll', function onScroll() {
+//   if (window.pageYOffset > number2Top - window.innerHeight / 2) {
+//     this.removeEventListener('scroll', onScroll);
+//     var interval2 = setInterval(function () {
+//       number2.innerHTML = ++start2;
+//       if (start2 == end2) {
+//         clearInterval(interval2);
+//       }
+//     }, 5);
+//   }
+// });
+
+// var number3 = document.querySelector('.number3'),
+//   number3Top = number3.getBoundingClientRect().top,
+//   start3 = +number3.innerHTML,
+//   end3 = +number3.dataset.max;
+
+// window.addEventListener('scroll', function onScroll() {
+//   if (window.pageYOffset > number3Top - window.innerHeight / 2) {
+//     this.removeEventListener('scroll', onScroll);
+//     var interval3 = setInterval(function () {
+//       number3.innerHTML = ++start3;
+//       if (start3 == end3) {
+//         clearInterval(interval3);
+//       }
+//     }, 5);
+//   }
+// });
 
 const tab = function () {
   let tabNav = document.querySelectorAll('.tabs-nav__item'), // Выбираем элементы навигации табов
