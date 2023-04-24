@@ -24,7 +24,7 @@ const swiper2 = new Swiper('.card-swiper2', {
     prevEl: '.card-swiper-button-prev',
   },
   thumbs: {
-    swiper,
+    swiper: swiper,
   },
 });
 
@@ -86,6 +86,36 @@ const swiper4 = new Swiper('.catalog-swiper', {
       spaceBetween: 47,
       slidesPerView: 5,
     },
+  },
+});
+
+const swiper5 = new Swiper('.card-swiper3', {
+  freeMode: true,
+  watchSlidesProgress: true,
+
+  breakpoints: {
+    320: {
+      spaceBetween: 14,
+      slidesPerView: 2.5,
+    },
+    400: {
+      spaceBetween: 14,
+      slidesPerView: 3,
+    },
+    650: {
+      spaceBetween: 10,
+      slidesPerView: 4,
+    },
+  },
+});
+const swiper6 = new Swiper('.card-swiper4', {
+  spaceBetween: 10,
+  navigation: {
+    nextEl: '.card-swiper2-button-next',
+    prevEl: '.card-swiper2-button-prev',
+  },
+  thumbs: {
+    swiper: swiper5,
   },
 });
 
